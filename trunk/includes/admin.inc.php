@@ -39,6 +39,7 @@ class Admin
 	public nouveau_stage($nom, $obj, $prog, $intervenant, $prerequis, $duree, $lieu, $nivcomp, $theme)
 	{
 		//Pas fini
-		$this->bdd->exec('INSERT INTO formation(nom, possesseur, console, prix, nbre_joueurs_max, commentaires) VALUES ('',$nom, $obj, $prog, $intervenant, $prerequis, $duree, $lieu, $nivcomp, $theme);
+		$this->bdd->exec('INSERT INTO formation(ID_FORMATION, NOM, OBJECTIF, PROGRAMME, INTERVENANT, PREREQUIS, DUREE, LIEU, NIVCOMP, THEME) VALUES ('',$nom, $obj, $prog, $intervenant, $prerequis, $duree, $lieu, $nivcomp, $theme)');
+		return true;
 	}
 }
