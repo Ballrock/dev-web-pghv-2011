@@ -109,7 +109,7 @@ class Admin
 		}
 		else
 		{
-			return false
+			return false;
 		}
 	}
 }
