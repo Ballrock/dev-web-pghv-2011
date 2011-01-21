@@ -1,5 +1,5 @@
 <?php
-include('.\config.php');
+include('.\config.inc.php');
 class Admin
 {
 	private $bdd;
@@ -16,7 +16,7 @@ class Admin
 		{
 				die('Erreur : ' . $e->getMessage());
 		}
-    	Admin::unique = $this;
+    	self::$unique = $this;
     }
 	
 	private function __destruct()
@@ -31,7 +31,7 @@ class Admin
 		}
 		else
 		{
-			Admin::__constuct();
+			self::__constuct();
 			return Admin::unique;
 		}
 	}
@@ -59,12 +59,13 @@ class Admin
 		$lieu = mysql_escape_string($lieu);
 		$nivcomp = mysql_escape_string($nivcomp);
 		$theme = mysql_escape_string($theme);
+		
 		try
 		{
 			$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
 			$req = $this->bdd->prepare('INSERT INTO formation(ID_FORMATION, NOM, OBJECTIF, PROGRAMME, INTERVENANT, PREREQUIS, DUREE, LIEU, NIVCOMP, THEME) VALUES (:id, :nom, :obj, :prog, :intervenant, :prerequis, :duree, :lieu, :nivcomp, :theme)', $pdo_options);
 			$req->execute(array(
-				'id' => ''
+				'id' => '',
 				'nom' => $nom,
 				'obj' => $obj,
 				'prog' => $prog,
@@ -81,5 +82,34 @@ class Admin
 				return $e->getMessage();
 		}
 		return true;
+	}
+	
+	public function suppress_stage($id)
+	{
+		if(is_int($id))
+		{
+			$req = $this->bdd->prepare('SELECT ID_FORMATION FROM formation WHERE ID_FORMATION=:id');
+			$req->execute(array(
+				'id' => $id
+				));
+			if($req==NULL)
+			{
+				$req2 = $this->bdd->prepare('DELETE FROM formation WHERE ID_FORMATION=:id');
+				$req2->execute(array(
+					'id' => $id
+					));
+				$req2->closeCursor();
+				$req->closeCursor();
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false
+		}
 	}
 }
