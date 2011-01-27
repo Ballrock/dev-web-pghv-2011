@@ -195,13 +195,17 @@ class Admin
 		try
 		{
 			$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-			$req = $this->bdd->prepare('INSERT INTO session(IS_SESSION, DATE_DEBUT, DATE_FIN, FORMATION) VALUES (:id, :debut, :fin, :formation)', $pdo_options);
+			$req = $this->bdd->prepare('INSERT INTO session(ID_SESSION, DATE_DEBUT, DATE_FIN, FORMATION) VALUES (:id, :debut, :fin, :formation)', $pdo_options);
 			$req->execute(array(
 				'id' => '',
 				'debut' => $debut,
 				'fin' => $fin,
 				'formation' => $formation
 				));
+		}
+		catch (Exception $e)
+		{
+				return $e->getMessage();
 		}
 		return true;
 	}
@@ -225,16 +229,19 @@ class Admin
 			try
 			{
 				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-				$req = $this->bdd->prepare('INSERT INTO session(IS_SESSION, DATE_DEBUT, DATE_FIN, FORMATION) VALUES 
-(:id, :debut, :fin, :formation)', $pdo_options);
+				$req = $this->bdd->prepare('UPDATE session SET DATE_DEBUT=:debut, DATE_FIN=:fin, FORMATION=:formation WHERE ID_SESSION=:id', $pdo_options);
 				$req->execute(array(
-					'id' => '',
+					'id' => $id,
 					'debut' => $debut,
 					'fin' => $fin,
 					'formation' => $formation
 					));
 			}
 			return true;
+			catch (Exception $e)
+			{
+				return $e->getMessage();
+			}
 		}
 		else
 		{
@@ -247,6 +254,56 @@ class Admin
 		if(is_int($id))
 		{
 			$req = $this->bdd->prepare('DELETE FROM session WHERE ID_SESSION=:id');
+			$req->execute(array(
+				'id' => $id
+				));
+			$req->closeCursor();
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	public function nouveau_enseignant($nom, $prenom, $status, $etablissement)
+	{
+		$nom = htmlentites($nom);
+		$prenom = htmlentites($prenom);
+		$status = htmlentites($status);
+		$etablissement = htmlentites($etablissement);
+		if(get_magic_quotes_gpc())
+		{
+			$nom = stripslashes($nom);
+		}
+		$nom = mysql_real_escape_string($nom);
+		$prenom = mysql_real_escape_string($prenom);
+		$status = mysql_real_escape_string($status);
+		$etablissement = mysql_real_escape_string($etablissement);
+		try
+		{
+			$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+			$req = $this->bdd->prepare('INSERT INTO intervenant(ID_INTERVENANT, NOM, PRENOM, STATUS, ETABLISSEMENT) VALUES (:id, :nom, :prenom, :satus, :etablissement)', $pdo_options);
+			$req->execute(array(
+				'id' => '',
+				'nom' => $nom,
+				'prenom' => $prenom,
+				'status' => $status,
+				'etablissement' => $etablissement
+				));
+		}
+		catch (Exception $e)
+		{
+				return $e->getMessage();
+		}
+		return true;
+	}
+	
+	public function suppress_enseignant($id)
+	{
+		if(is_int($id))
+		{
+			$req = $this->bdd->prepare('DELETE FROM intervenant WHERE ID_INTERVENANT=:id');
 			$req->execute(array(
 				'id' => $id
 				));
