@@ -1,0 +1,410 @@
+/* les fiches (=fiche) : =annuaireksup, =annuaireetudiants, =annuaireanciensetudiants, =defautstructureksup, =formation, =ueup, =cours, =associationetudiant, =offresstagesemplois */
+
+
+/* *** Listes d'affichage *** */
+ul.liste-offresstagesemplois li {
+border-top : 1px solid #cbadb5;
+clear : left;
+list-style-type : none;
+margin : 0;
+padding : 10px 0;
+}
+
+ul.liste-offresstagesemplois li a {
+padding-left : 0;
+}
+
+ul.liste-offresstagesemplois li span {
+display : block;
+}
+
+ul.liste-offresstagesemplois em {
+font-size : 1.1em;
+font-style : normal;
+font-weight : 700;
+margin : 0;
+padding : 0;
+}
+
+ul.liste-offresstagesemplois span.date-liste {
+color : #222e44;
+}
+
+ul.liste-offresstagesemplois p {
+font-size : 1em;
+margin : 0;
+padding : 0;
+}
+
+
+/* ===	=Fiche =Annuaireksup =Annuaire ===*/
+
+body.annuaireksup #fonction {
+border-bottom : 1px solid #cbadb5;
+padding : 8px 32px 8px 0;
+}
+
+body.annuaireksup p#type_personnel,
+body.associationetudiant p#types_association,
+body.defaultstructureksup p#type_structure,
+body.offresstagesemplois p#type,
+body.laboratoire p#type_laboratoire,
+body.formation p#formation_lmd{
+background: no-repeat 0 bottom;
+padding-bottom: 0.5em;
+}
+
+body.annuaireksup p#type_personnel span.type_personnel_deco,
+body.associationetudiant p#types_association span.types_association_deco,
+body.defaultstructureksup p#type_structure span.type_structure_deco,
+body.offresstagesemplois p#type span.type_deco,
+body.laboratoire p#type_laboratoire span.type_laboratoire_deco,
+body.formation p#formation_lmd span.formation_lmd_deco{
+background: no-repeat 0 0;
+padding-top: 0.5em;
+display: block;
+}
+
+body.annuaireksup div.photo {
+float : left;
+margin-right : 1em;
+margin-top: 0;
+}
+
+
+/**********************
+	=Fiche =Annuaireetudiants =Annuaire
+***********************/
+body.annuaireetudiants p#date_naissance {
+color: red;
+}
+
+body.annuaireetudiants div.photo {
+background : #fff;
+float : left;
+margin-right : 1em;
+}
+
+body.annuaireetudiants dl.type_2 {
+background-color : transparent;
+}
+
+
+/**********************
+	=Fiche =Annuaireanciensetudiants =Annuaire
+***********************/
+body.annuaireanciensetudiants #date_naissance {
+background: red;
+}
+
+body.annuaireanciensetudiants div.photo {
+background : #fff;
+float : left;
+margin-right : 1em;
+}
+
+body.annuaireanciensetudiants dl.type_2 {
+background-color : transparent;
+}
+
+
+/******************************************
+	=Fiche =DefautStructureksup =Structure
+******************************************/
+body.defaultstructureksup div.photo {
+float: left;
+}
+
+
+/******************************************
+	=Fiche =Laboratoire =Structure
+******************************************/
+body.laboratoire div.photo {
+float: left;
+}
+
+body.laboratoire ul.responsables,
+body.defaultstructureksup ul.responsables{
+margin-bottom: 10px;
+}
+
+body.laboratoire ul.responsables li,
+body.defaultstructureksup ul.responsables li {
+list-style-type : none;
+}
+/******************************************
+	=Fiche =Formation
+******************************************/
+
+/* Onglets */
+
+body.formation ul.onglets {
+float : left;
+list-style : none;
+margin: 1em 0;
+font-weight: 700;
+border-bottom : 1px solid #666;
+width: 490px;
+}
+
+body.formation ul.onglets li {
+text-align: center;
+float : left;
+margin-left: 0;
+margin-right: 0px;
+}
+
+body.formation ul.onglets a{
+background: no-repeat 0 0;
+color: #023768;
+width: 98px;
+line-height: 2em;
+display: block;
+text-decoration: none;
+letter-spacing:-0.04em;
+}
+
+/* === */
+
+body.formation h3.presentation {
+border-left : 1px solid #262546;
+color : #262546;
+display : inline;
+font-size : 1em;
+margin : 0 0 0 0.5em;
+padding-left : 0.5em;
+}
+
+body.formation dl.presentation {
+border-left : 1px dotted #c0c0c0;
+float : left;
+margin-left : 0.5em;
+margin-top : 0;
+padding-left : 0.5em;
+}
+
+
+body.formation h3.premier_bloc {
+border-left : 0;
+margin : 0;
+padding-left : 0;
+}
+
+body.formation dl.premier_bloc {
+border-left : 0;
+margin-left : 0;
+margin-right : 0.5em;
+padding-left : 0;
+padding-right : 0.5em;
+}
+
+body.formation dl.presentation dt {
+font-weight : 700;
+background: no-repeat 0 0;
+padding-left: 1em;
+}
+
+body.formation dl.presentation dd {
+margin : 0 0 0.5em 1em;
+}
+
+/* hack CSS pour IE */
+* html body.formation dl.type_1 dd {
+height : 2.5em;
+}
+
+body.formation div#resume,
+body.formation div#et_apres{
+background: #e3e6e8 url(../images/style3.png) no-repeat right 0;
+padding: 1em;
+margin: 1em 0;
+}
+
+body.formation div#et_apres h3{
+font-size: 1.4em;
+margin: 0;
+}
+
+body.formation div#et_apres dl.type_2 dd{
+padding-left: 0;
+margin: 0.8em 0;
+}
+
+body.formation ul.sans_puce li{
+list-style-image: none;
+list-style: none;
+margin-left: 0;
+}
+
+body.formation p#stage_important {
+color : #f5ab32;
+margin: 0.5em 0;
+}
+
+body.formation p#stage_important em{
+font-style: normal;
+font-weight: 700;
+}
+
+div.parcours{
+padding-bottom: 0;
+}
+
+div.parcours ul ul li{
+list-style-image: none;
+list-style: none;
+margin-left: 0;
+}
+
+/**********************
+	=Fiche =Ueup
+***********************/
+body.ueup table#details, body.ueup table#volumes_horaires {
+border-top : 1px solid #cbadb5;
+float : left;
+padding-top : 7px;
+}
+
+body.ueup table#details {
+width : 60%;
+}
+
+body.ueup table#volumes_horaires {
+width : 40%;
+}
+
+body.ueup table#details th , body.ueup table#volumes_horaires th {
+text-align : right;
+width : 50%;
+}
+
+body.ueup table#details td, body.ueup table#volumes_horaires td {
+color : #b41e1e;
+padding-left : 0.7em;
+text-align : left;
+}
+
+
+/**********************
+	=Fiche =Cours
+***********************/
+
+body.cours #disciplines {
+border-bottom : 1px solid #cbadb5;
+border-top : 1px solid #cbadb5;
+color : #778aaa;
+font-size : xx-small;
+margin : 8px 0;
+}
+
+body.cours table#volumes_horaires, body.cours table#coefs {
+border-top : 1px solid #cbadb5;
+float : left;
+padding-top : 7px;
+}
+body.cours table#volumes_horaires {
+width : 60%;
+}
+
+body.cours table#coefs {
+width : 40%;
+}
+
+body.cours table#volumes_horaires th, body.cours table#coefs th {
+text-align : right;
+width : 50%;
+}
+
+body.cours table#volumes_horaires td, body.cours table#coefs td {
+color : #b41e1e;
+padding-left : 0.7em;
+text-align : left;
+}
+
+/**********************
+	=Fiche =Associationetudiant
+***********************/
+
+body.associationetudiant #objet {
+margin-bottom : 1.5em;
+text-align : left;
+}
+
+body.associationetudiant div.photo {
+float: left;
+}
+
+
+/******************************************
+	=Fiche =Offresstagesemplois
+******************************************/
+
+body.offresstagesemplois div#descriptif p{
+margin: 0 0 1em 0;
+}
+
+body.offresstagesemplois div#descriptif h3{
+background: no-repeat 0 bottom;
+font-size: 1.8em;
+font-family: arial, sans-serif;
+font-weight: 700;
+padding-bottom: 0.2em;
+margin: 0.8em 0 0.5em 0;
+}
+
+/******************************************
+	=Fiche =Formationpersonnel
+******************************************/
+body.formationpersonnel div#contenu {
+	background: #e3e6e8 url(../images/style3.png) no-repeat right 0;
+	padding: 1em;
+	margin: 0 0 1em 0;
+}
+
+body.formationpersonnel div#contenu dl.type_2 dt {
+	background: url(../images/fleche.png)	no-repeat 0 3px !important;
+	padding-left: 1.5em;
+	color: #636466;
+}
+
+body.formationpersonnel div#contenu #titre {
+	background: url(../images/fleche.png)	no-repeat 0 3px !important;
+	padding-left: 1.5em;
+	color: #636466;
+	font-weight: 700;
+}
+
+body.formationpersonnel div.hr {
+	height:1px; 
+	background: #fff url(../images/trait_degrade.png) no-repeat left;
+}
+
+body.formationpersonnel div#code_action dl.type_1, 
+body.formationpersonnel div#lieu dl.type_1, 
+body.formationpersonnel div#duree dl.type_1, 
+body.formationpersonnel div#dates dl.type_1 {
+margin: 0 !important;
+}
+
+body.formationpersonnel div#code_action dl.type_1 dt,
+body.formationpersonnel div#lieu dl.type_1 dt,
+body.formationpersonnel div#duree dl.type_1 dt,
+body.formationpersonnel div#dates dl.type_1 dt {
+	padding-top: 0.5em;
+	background: url(../images/fleche.png)	no-repeat 0 9px !important;
+	padding-left: 1.5em;
+	color: #636466;
+}
+
+body.formationpersonnel div#code_action dl.type_1 dd,
+body.formationpersonnel div#lieu dl.type_1 dd,
+body.formationpersonnel div#duree dl.type_1 dd,
+body.formationpersonnel div#dates dl.type_1 dd { 
+	background-image: none !important;
+	min-height: 0px;
+}
+
+body.formationpersonnel div#dif {
+	margin-top: 0.5em;
+	padding-bottom: 0.5em !important;
+}

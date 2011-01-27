@@ -1,0 +1,72 @@
+/* === Menu principal === */
+
+ul#menu_principal{
+line-height : 30px;
+height: 30px;
+list-style-type : none;
+background: url(../images/menu_principal.png) no-repeat right bottom;
+position: absolute;
+top: 0;
+left: 0;
+font-weight: 700;
+font-size: 1.1em;
+}
+
+ul#menu_principal li {
+float : left;
+margin : 0 0.3em;
+position : relative;
+margin-right: 1em;
+}
+
+ul#menu_principal ul {
+background: url(../images/menu_principal_niveau2.png) no-repeat 0 0;
+border-top : 0;
+border-bottom: 4px solid #00487a;
+font-size: 0.9em;
+font-weight: 500;
+display : none;
+left : 0;
+line-height : normal;
+list-style-type : none;
+padding-top: 39px;
+position : absolute;
+top : 30px;
+width : 150px;
+z-index : 5;
+}
+
+ul#menu_principal ul li {
+float : none;
+display: inline;
+margin: 0;
+}
+
+ul#menu_principal em {
+font-style : normal;
+font-weight : 700;
+}
+
+ul#menu_principal a {
+background-color : transparent;
+color : #fff;
+text-decoration : none;
+}
+
+ul#menu_principal ul a{
+background-color: #ebebeb;
+color: #00487a;
+border-bottom: 2px solid #fff;
+display: block;
+padding: 0.5em;
+}
+
+
+ul#menu_principal ul li{
+color: #fff;
+
+}
+
+ul#menu_principal ul a:hover{
+background-color: #cacc2c;
+}

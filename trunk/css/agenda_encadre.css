@@ -1,0 +1,213 @@
+/* pour overrider ecran.css */
+table#mois a {
+background-color: transparent;
+text-decoration: none;
+color:#636466;
+}
+
+/* MOIS ====================== */
+
+table#mois{
+position:relative;
+border:none;
+border-left:1px solid #8e908d;
+border-spacing:0;
+float:left;
+height:130px;
+margin-right:0;
+width:180px;
+}
+
+div#encadres table#mois{
+float:none;
+border-left:none;
+border-right:none;
+width:180px;
+}
+
+table#mois acronym{
+border-bottom:0;
+}
+
+/* === */
+
+table#mois caption{
+font-weight:700;
+height:20px;
+}
+
+table#mois caption a{
+font-weight:normal;
+}
+
+table#mois caption a.precedent{
+padding-right:15px;
+padding-left:5px;
+}
+
+table#mois caption a.suivant{
+padding-left:15px;
+padding-right:5px;
+}
+
+table#annee caption a.precedent{
+padding-right:15px;
+padding-left:5px;
+}
+
+table#annee caption a.suivant{
+padding-left:15px;
+padding-right:5px;
+}
+/* === */
+
+table#mois .mois_semaine{
+font-size:0.8em;
+font-family:arial, sans-serif;
+border-left:1px solid #8e908d;
+padding-left:6px;
+text-align:left;
+}
+
+table#mois .mois_semaine a{
+color:#319ba8;
+}
+
+table#mois tbody .mois_semaine{
+font-size:1em;
+}
+
+table#mois tbody tr:hover{
+background: #e9e9e9;
+}
+
+table#mois th{
+font-weight:500;
+border:0;
+line-height: 100%;
+}
+
+table#mois td{
+border:0;
+text-align:center;
+border-left:1px solid #e3f1f4;
+cursor:pointer;
+line-height: 70%;
+padding: 2px 4px 2px 4px;
+}
+
+table#mois td.mois_lundi{
+border-left:0;
+}
+
+table#mois tr#mois_semaine_selectionnee{
+background:#e3f1f4;
+}
+
+table#mois tr#mois_semaine_selectionnee td{
+border-bottom:1px solid #8e908d;
+}
+
+table#mois td.semaine_focus{
+font-weight:700;
+background-image:url(../images/semaine_focus.png);
+background-repeat:no-repeat;
+background-position:90% 50%;
+}
+
+table#mois td.jour_focus,
+table#mois td.jour_focus a{
+background:#319ba8;
+color:#fff;
+}
+
+table#mois tbody td:hover,
+table#mois tbody td:hover a,
+table#mois tbody td.today,
+table#mois tbody td.today a{
+background: #e9e9e9;
+color:#fff;
+}
+
+/* === */
+
+table#mois a.mois_autre{
+color:#e9e9e9;
+}
+
+/* == div contenant l'encadre == */
+div#contenu_agenda{
+width:653px;
+margin-right:0;
+padding-right:0;
+}
+
+
+/* =============== Tooltip ======== */
+
+#tooltip {
+background-color: #ffffcc;
+color: #000000; 
+padding: 4px; 
+border: 1px solid gray; 
+text-align: left; 
+cursor: default;
+opacity: 0.85;
+z-index: 10000;
+}
+
+.tooltipheures{
+margin-top:0;
+margin-bottom:0;
+font-style: italic;
+font-size: 0.8em;
+}
+
+
+table#mois tr#mois_semaine_selectionnee{
+background-color:#decb06;
+}
+
+table#mois tr#mois_semaine_selectionnee td{
+border-bottom:1px solid #319ba8;
+}
+
+table#mois td.semaine_focus a{
+color:#636466;
+}
+
+
+table#mois caption a.today{
+color:white;
+background-color:#319ba8;
+}
+
+table#mois caption a.today:hover{
+color:white;
+background-color:#319ba8;
+}
+
+
+table#mois td.jour_focus,
+table#mois td.jour_focus a{
+background:#319ba8;
+color:#fff;
+}
+
+table#mois tbody td:hover,
+table#mois tbody td:hover a,
+table#mois tbody td.today,
+table#mois tbody td.today a{
+background: #319ba8;
+color:#fff;
+}
+
+
+table#mois td.semaine_focus{
+background-color:#e3f1f4;
+}
+
+table#mois caption a:hover {
+background:#319BA8;
+color:#fff
+}

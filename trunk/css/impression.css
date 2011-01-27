@@ -1,0 +1,89 @@
+/* feuille de style d'impression */
+
+body{
+margin:0;
+padding:0;
+font-family: arial, "Bitstream Vera Sans", sans-serif;
+font-size:10pt;
+}
+
+/* élément cachés à l'impression */
+ul#menu_principal,
+form#recherche_simple,
+#connexion,
+div#navigation,
+#menu, 
+#acces_direct,
+#boutons_actions,
+hr.separateur_sections_page,
+.encadre_recherche,
+div#acces_pratiques,
+p#acces_langue,
+div#pied_page,
+object{
+display: none;
+}
+
+/* pour désactiver tout les attributs styles en ligne,
+sur les navigateurs récents */
+*[style]{
+margin:auto !important;
+border:none !important;
+color:inherit !important;
+background: inherit !important;
+width: auto !important;
+}
+
+/* !important pour désactiver le style en ligne forçant largeur et liseret */
+div#contenu_avec_encadres, div#contenu_sans_encadres{
+width:100% !important;
+border:none !important;
+margin: 20pt 0;
+}
+
+#pied_page {
+border-top: 1pt solid #666;
+margin-top: 10pt;
+padding-top: 5pt;
+}
+
+a img{
+border:none;
+}
+
+h1 {
+margin-top:0;
+padding-top:0
+}
+
+h1 a {
+color: #000;
+text-decoration: none;
+}
+
+h2,
+h3 {
+border-bottom:1pt solid #666;
+padding: 5pt 0;
+}
+
+#encadres h3 {
+border: 0;
+}
+
+dl{
+border:1pt solid #666;
+padding:10pt
+}
+
+dt{
+font-weight:700;
+}
+
+dd {
+margin-bottom: 15pt;
+}
+
+caption{
+font-weight:700;
+}
