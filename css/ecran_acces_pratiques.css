@@ -1,0 +1,76 @@
+div#acces_pratiques{
+position: absolute;
+top: 0;
+right: 5px;
+margin: 0;
+padding: 0;
+text-align: right;
+z-index: 1;
+}
+
+div#acces_pratiques form#recherche_simple_restreinte{
+float: left;
+width: 30em;
+}
+
+div#acces_pratiques form#recherche_simple_restreinte label{
+vertical-align: middle;
+color: #77797f;
+visibility: hidden;
+}
+
+div#acces_pratiques form#recherche_simple_restreinte:hover label{
+color: #fff;
+/* visibility: visible; */
+}
+
+div#acces_pratiques form#recherche_simple_restreinte input{
+font-size: 0.9em;
+width: 60px;
+margin-top: 4px;
+vertical-align: middle;
+}
+
+div#acces_pratiques form#recherche_simple_restreinte input.ok{
+width: auto;
+}
+
+div#acces_pratiques form#recherche_simple_restreinte p{
+display: inline;
+}
+
+div#acces_pratiques ul{
+list-style: none;
+float: left;
+}
+
+div#acces_pratiques ul li{
+display: inline;
+list-style-image: none;
+margin: 0;
+}
+
+div#acces_pratiques ul a{
+color: #fff;
+}
+
+form#profil {
+display: block;
+position: absolute;
+top: 40px;
+right: 5px;
+width: 40em;
+}
+
+form#profil label{
+vertical-align: middle;
+}
+
+form#profil select {
+font-size: 0.9em;
+}
+
+form#profil input.ok{
+vertical-align: middle;
+width: auto;
+}

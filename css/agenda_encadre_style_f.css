@@ -1,0 +1,51 @@
+/* déclinaison F
+#f99d1c - orange
+#00549e - bleu
+#53b7e8 - bleu ciel
+#FAC064 - orange clair
+#FFDFB2 - orange pale
+*/
+/* MOIS ====================== */
+
+table#mois .mois_semaine a{
+color:#f99d1c;
+}
+
+table#mois td{
+border-left:1px solid #FFDFB2;
+}
+
+table#mois tr#mois_semaine_selectionnee{
+background-color:#00549e !important;
+}
+table#mois tr#mois_semaine_selectionnee a {
+color:white;
+}
+
+/* =============== Tooltip ======== */
+
+table#mois tr#mois_semaine_selectionnee{
+background-color:#00549e;
+}
+
+table#mois tr#mois_semaine_selectionnee td{
+border-bottom:1px solid #f99d1c;
+}
+
+table#mois caption a.today:hover,
+table#mois td.jour_focus,
+table#mois td.jour_focus a,
+table#mois caption a:hover,
+table#mois caption a.today,
+table#mois tbody td:hover,
+table#mois tbody td:hover a,
+table#mois tbody td.today,
+table#mois tbody td.today a,
+table#mois td.jour_focus,
+table#mois td.jour_focus a {
+background-color:#f99d1c;
+}
+
+table#mois td.semaine_focus{
+background-color:#FFDFB2;
+}

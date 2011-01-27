@@ -1,0 +1,305 @@
+/* ===========================
+Initialisation des styles par defaut
+=========================== */
+body {
+background: #020b23 url(../images/fond.jpg) no-repeat fixed center -300px;
+color : #fff;
+font-family : verdana, helvetica, arial, sans-serif;
+font-size : 62.5%;
+}
+
+body, html, fieldset {
+border : 0;
+}
+
+h1, h2, h3, h4, h5, h6, pre, code {
+font-size : 1em;
+}
+
+ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, blockquote, fieldset, input {
+margin : 0;
+padding : 0;
+}
+
+div#contenu_avec_encadres li, div#contenu_sans_encadres li {
+list-style-position:inside;
+}
+
+.invisible {
+display: none !important ;
+}
+
+/* liste a puce simple */
+
+ul li a,
+ol li a{
+text-decoration: none;
+}
+
+ul li,
+ol.plansite1 ol li{
+list-style-position: outside !important;
+margin-left: 1px;
+margin-bottom: 1px;
+}
+
+
+ul#menu_principal li,
+ul#menu_secondaire li,
+ul#telecharger li,
+ul.onglets li,
+ol.plansite1 ol ol li,
+li.type_0001,
+li.type_0002,
+li.type_0003,
+li.type_0004,
+li.type_0005,
+li.type_0006,
+ul.liste_resultats li{
+list-style-image: none;
+border-left: 0;
+}
+
+ul.liste-actualites li.type_0002,
+ul.liste-actualites li.type_0003,
+ul.liste-articles li.type_0001,
+ul.liste-articles li.type_0003,
+ul.liste-documents li.type_0001,
+ul.liste-documents li.type_0002,
+ul.liste-documents li.type_0003{
+background-image: none;
+padding: 0 0 0.7em 0;
+}
+
+ul.liste-actualites li.type_0003 em{
+font-weight: 500;
+}
+
+a {
+text-decoration : underline;
+}
+
+/* etat "focus" important pour accessibilite web */
+div#contenu_avec_encadres a:focus {
+background-color : #666 !important;
+color : #fff !important;
+text-decoration : none !important;
+}
+
+a img,
+a:link img,
+a:visited img {
+border : none;
+}
+
+div#acces_pratiques a img,
+div#acces_pratiques a:link img,
+div#acces_pratiques a:visited img,
+div#encadres a img,
+div#encadres a:link img,
+div#encadres a:visited img
+div#pied_page a img,
+div#pied_page a:link img,
+div#pied_page a:visited img{
+vertical-align : middle;
+}
+
+h2 {
+background-color : #fff;
+color : #666;
+font-size : 2em;
+font-family: arial, sans-serif;
+font-size: 2em;
+line-height: 100%;
+font-weight : 700;
+padding: 0;
+margin-bottom: 0.6em;
+}
+
+h3 {
+font-size : 1.4em;
+margin : 1em 0;
+}
+
+h4 {
+font-size : 1.2em;
+margin : 1em 0;
+}
+
+/* === Avertissement visuel quand on visualise une page par le mode apercu du back office === */
+
+p#en_mode_apercu {
+background: url(../images/en_mode_apercu.png) no-repeat center bottom;
+color : #fff;
+font-size : 1.1em;
+font-weight : 700;
+margin : 0 auto;
+padding : 0.8em 0;
+text-align : center;
+width : 250px;
+margin-top: 90px;
+}
+
+/* === Accessibilite liens evitement === */
+
+p#acces_direct {
+margin : 0;
+width : 1000px;
+display: none;
+}
+
+p#acces_direct a,
+p#acces_direct a:visited {
+background : #fff;
+color : #332e44;
+display : block;
+font-size : 1.1em;
+font-weight : 700;
+padding : 0.4em 0 1.1em 0;
+text-align : center;
+text-decoration : none;
+width : 1000px;
+}
+
+p#acces_direct a:hover,
+p#acces_direct a:focus,
+p#acces_direct a:active {
+background : #ffb623 url(../images/acces_direct.png) no-repeat center bottom;
+}
+
+p#raccourcis {
+display : none;
+margin : 0;
+}
+
+p#raccourcis a {
+color : #fff;
+}
+
+/* ===========================
+Grands Blocs
+=========================== */
+
+div#page_deco {
+margin: 0 auto;
+position: relative;
+/* width : 978px; */
+width: 828px;
+padding-right: 150px;
+}
+
+div#page {
+background-color: transparent;
+color : #636466;
+width : 678px;
+margin: 90px auto auto auto;
+position: relative;
+float: right;
+}
+
+div#page_deco2{
+background-color: #fff;
+}
+
+
+/* ===========================
+Styles Communs
+=========================== */
+
+hr.separateur_sections_page {
+display : none;
+}
+
+/* === classes communes === */
+
+.hide {
+position : absolute;
+visibility : hidden;
+}
+
+.separateur {
+clear : both;
+display: block;
+height : 1px;
+margin : 0;
+padding : 0;
+width: 100%;
+}
+
+.erreur {
+color : #f00;
+font-style : normal;
+font-weight : 700;
+}
+
+.retour {
+cursor : pointer;
+}
+
+/* champs de formulaires en lecture seule */
+form input.readonly {
+background-color : #e3e6e8;
+border: 1px solid #a5acb2;
+}
+
+.champ-saisie,
+select {
+border : 1px solid #a5acb2;
+padding : 1px;
+}
+
+/*
+.ok {
+background : #fff;
+border : 1px solid;
+height : 20px;
+vertical-align : top;
+}
+*/
+
+.legende {
+background-color : transparent;
+color : #666;
+font-size: xx-small;
+margin : 0.5em 0 1em 0;
+}
+
+div.photo{
+background-color: #fff;
+margin-top: 1em;
+}
+
+.photo img {
+border : 1px solid #000;
+}
+
+/* lorsque le menu principal déroulant est absent (sur les sites satellites) */
+h1#logo {
+font-size : 1.6em;
+position: absolute;
+top: 10px;
+left: 7px;
+}
+
+/* lorsque le menu principal déroulant est present */
+body.institutionnel h1#logo{
+top: 36px;
+}
+
+h1 a {
+color : #fff;
+text-decoration : none;
+}
+
+.fluxrss li {
+  margin-bottom:10px;
+}
+.fluxrss .daterss {
+	color:#749333;
+}
+.fluxrss .titlerss {
+	font-weight:bold;
+}
+.fluxrss .spacerss {
+        clear: both;
+}

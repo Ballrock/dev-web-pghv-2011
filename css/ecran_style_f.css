@@ -1,0 +1,397 @@
+/*
+#f99d1c - orange
+#00549e - bleu
+#53b7e8 - bleu ciel
+*/
+
+a {
+color: #53b7e8;
+}
+
+ul.liste-formations span.precisionlegales-liste,
+ul.liste_resultats div.liens_fiches a,
+body.stagiaire ul li a{
+color: #53b7e8;
+}
+
+
+/* liste a puce simple */
+
+ul li,
+ol.plansite1 ol li{
+list-style-image: url(../images/puce.png);
+}
+
+/* === */
+
+h1#intitule_site{
+background: transparent url(../images/intitule_site.png) no-repeat 0 0;
+}
+
+span.formation_concernee {
+background: url(../images/fleche.png) no-repeat scroll 0 2px transparent;
+padding-left: 1.5em;
+word-wrap: break-word;
+}
+
+.pave_tri div.style3 {
+        padding-left:5px;
+        padding-right:5px;
+}
+
+h2,p#resultats_par_domaines {
+color: #00549e;
+}
+
+div#pageresultatformation h3 {
+	color: #f99d1c;
+}
+
+
+ol.plansite1 li{
+list-style-image: url(../images/fleche.png);
+}
+
+/* === menu secondaire === */
+
+div#menu_secondaire_deco2 {
+background-image: url(../images/menu_secondaire_deco2.png);
+}
+
+div#menu_secondaire_deco1 {
+background-image: url(../images/menu_secondaire_deco1.png);
+}
+
+ul#menu_secondaire {
+background-image: url(../images/menu_secondaire.png);
+}
+
+ul#menu_secondaire li#focus{
+background-image: url(../images/menu_secondaire_item.png);
+}
+
+ul#menu_secondaire a:hover{
+color: #f99d1c;
+}
+
+ul#menu_secondaire ul a{
+color: #f99d1c;
+}
+
+/* === contenu central === */
+
+div.style1 h3, div#recherche h3 {
+color: #f99d1c;
+background-image: url(../images/trait_degrade.png);
+}
+
+div.style2 h3{
+color: #00549e;
+background-image: url(../images/style2_titre.png);
+}
+
+div.style3 h3{
+color: #00549e;
+}
+
+/* === */
+
+dl.type_1 {
+background-image: url(../images/trait_degrade.png);
+}
+
+body.stagiaire .pres_1 dd{
+background-image:url(../images/trait_degrade.png);
+}
+
+dl.type_1 dt {
+background-image: url(../images/trait_degrade.png);
+}
+
+dl.type_1 dd {
+background-image: url(../images/trait_degrade.png);
+}
+
+/* === */
+
+dl.type_2 dt {
+background-image: url(../images/puce.png);
+}
+
+
+/* === */
+
+body.actualite p#thematique,
+body.article p#thematique,
+body.document p#thematique{
+background-image: url(../images/trait_degrade.png);
+}
+
+body.actualite p#thematique span.thematique_deco,
+body.article p#thematique span.thematique_deco,
+body.document p#thematique span.thematique_deco{
+background-image: url(../images/trait_degrade.png);
+}
+
+body.actualite p#date,
+body.article p#date,
+body.actualite p#lieu{
+color: #f99d1c;
+}
+
+body.actualite p#complement_date,
+body.actualite div#complement_lieu {
+background-image: url(../images/trait_degrade.png);
+}
+
+body.document div#auteurs {
+background-image: url(../images/trait_degrade.png);
+}
+
+body.document p#referenceisdn {
+background-image: url(../images/trait_degrade.png);
+}
+
+body.document p#referenceisdn span.referenceisdn_deco{
+background-image: url(../images/trait_degrade.png);
+}
+
+ul#themes_recherche_avancee li{
+list-style-image: url(../images/fleche.png);
+}
+
+#recherche_avancee p ,
+div#pageresultatformation h3,
+div.pave_tri,
+div#pageresultatformation ul.liste_resultats{
+background-image:url(../images/trait_degrade.png);
+}
+
+/* === Objets sp�cifiques === */
+
+body.annuaireksup p#type_personnel,
+body.associationetudiant p#types_association,
+body.defaultstructureksup p#type_structure,
+body.offresstagesemplois p#type,
+body.laboratoire p#type_laboratoire,
+body.formation p#formation_lmd{
+background-image: url(../images/trait_degrade.png);
+}
+
+body.annuaireksup p#type_personnel span.type_personnel_deco,
+body.associationetudiant p#types_association span.types_association_deco,
+body.defaultstructureksup p#type_structure span.type_structure_deco,
+body.offresstagesemplois p#type span.type_deco,
+body.laboratoire p#type_laboratoire span.type_laboratoire_deco,
+body.formation p#formation_lmd span.formation_lmd_deco{
+background-image: url(../images/trait_degrade.png);
+}
+
+
+
+
+/* ==== Fiche Formation === */
+
+body.formation h3.parcours, 
+body.formation ul.semestre_parcours li table,
+body.formation ul.semestre_parcours li table a,
+div#telecharger_programme div.parcours h3{
+color: #f99d1c;
+border-color: #f99d1c;
+}
+div.parcours ul li.semestre strong {
+color:#53b7e8;
+}
+
+body.formation div#telecharger_programme span.titre_cache{
+background: url(../images/form_ferme_min.png) no-repeat 0 50%;
+}
+body.formation div#telecharger_programme span.titre_cache_vert{
+background: url(../images/form_ferme_vert_min.png) no-repeat 0 50%;
+}
+body.formation div#telecharger_programme span.titre_ouvert{
+background: url(../images/form_ouvert_min.png) no-repeat 0 50%;
+}
+body.formation div#telecharger_programme span.titre_ouvert_vert{
+background: url(../images/form_ouvert_vert_min.png) no-repeat 0 50%;
+}
+
+body.formation p#soustitre,
+body.formation div.para-an h3.couleur{
+color: #f99d1c;
+}
+
+body.formation .roundedcornr_box {
+background: url(../images/roundedcornr_tl.png) no-repeat top left;
+}
+body.formation .roundedcornr_top
+ {
+background: url(../images/roundedcornr_tr.png) no-repeat top right;
+}
+body.formation .roundedcornr_bottom {
+background: url(../images/roundedcornr_bl.png) no-repeat bottom left;
+}
+body.formation .roundedcornr_bottom div {
+background: url(../images/roundedcornr_br.png) no-repeat bottom right;
+}
+body.formation .roundedcornr_content {
+background: url(../images/roundedcornr_r.png) top right repeat-y;
+}
+
+
+/*
+body.offresstagesemplois div#descriptif{
+background-image: url(img_style_f/motif/trait_degrade.png);
+}
+*/
+
+body.offresstagesemplois div#descriptif h3{
+color: #f99d1c;
+background-image: url(../images/trait_degrade.png);
+}
+
+body.formation div#partenariat h4,
+body.formation div#contrat_pro h4,
+body.formation div#candidature h4,
+body.formation div#profil-reussir h4,
+body.formation div#que_faire h4,
+body.formation div#contact h4,
+body.formation div#inscription h4,
+body.formation div#rome h4,
+body.formation div#complement_formation_continue h4 {
+color: #f99d1c;
+}
+
+/* === */
+
+div.para-an {
+background-image: url(../images/trait_degrade.png);
+}
+
+div.para-an h3,
+body.stagiaire dl.pres_1 dt,
+div#description_stage h4,
+p.resultat_intitule em a,
+div#pageresultatformation  ul.liste_resultats li a{
+background-image: url(../images/fleche.png);
+}
+
+/* === Listes d'affichage === */
+
+ul.liste-documents li,
+ul.liste-actualites li,
+ul.liste-articles li {
+background-image: url(../images/trait_degrade.png);
+}
+
+ul.liste-documents em a:hover,
+ul.liste-actualites em a:hover,
+ul.liste-articles em a:hover{
+color: #53b7e8;
+}
+
+ul.liste-objets li div.liste_deco{
+display: block;
+background: url(../images/fleche.png) no-repeat 0 2px;
+padding-left: 1.7em;
+}
+
+ul.liste-pardefaut li {
+color: #53b7e8;
+list-style-position: inside;
+}
+
+ul.liste-documents span.soustitre-liste,
+ul.liste-actualites span.soustitre-liste,
+ul.liste-articles span.soustitre-liste {
+color: #53b7e8;
+}
+
+/* === liste r�sultat === */
+
+ul.liste_resultats li {
+background-image: url(../images/trait_degrade.png);
+}
+
+ul li a:hover,
+ol li a:hover{
+color: #53b7e8;
+}
+
+ul.liste-documents span.date-liste,
+ul.liste-actualites span.date-liste,
+ul.liste-articles span.date-liste {
+color : #f99d1c;
+}
+
+ul.liste-documents a.telecharger-fichiers {
+background-image: url(../images/puce.png);
+}
+
+/* === fiche formation === */
+
+body.formation div#et_apres h3{
+color: #53b7e8;
+}
+
+body.formation div#et_apres dl.type_2 dt{
+background-image: url(../images/fleche.png);
+}
+
+body.formation div.para-an span.titre_cache{
+background: url(../images/form_ferme.png) no-repeat 100% 0;
+}
+
+body.formation div.para-an span.titre_ouvert{
+background: url(../images/form_ouvert.png) no-repeat 100% 0;	
+}
+/* Onglets */
+
+body.formation ul.onglets {
+border-bottom : 1px solid #f99d1c;
+}
+
+body.formation ul.onglets a{
+background-image: url(../images/onglet_normal.png);
+}
+
+body.formation ul.onglets li.on a{
+background-image: url(../images/onglet_focus.png);
+}
+
+body.formation dl.presentation dt {
+background-image: url(../images/puce.png);
+}
+
+/* === encadr�s === */
+
+div#encadres h3{
+color: #f99d1c;
+background-image: url(../images/encadre_generique_titre.png);
+}
+
+#pied_page {
+/*background-color : #00549e; FBI : couleur 2 au lieu de 3 car bleu trop fonc�) */
+background-color : #53b7e8;
+}
+
+/* === */
+
+p#resultat_recherche_pagination a{
+color: #53b7e8;
+}
+
+p#resultat_recherche_pagination span#page_courante,
+p#resultat_recherche_pagination img{
+background-color: #53b7e8;
+}
+
+ul#autres_recherches li a {
+color: #53b7e8;
+}
+div#pageresultatformation p#recherche_avancee_autre_res{
+background: url(../images/fleche.png) no-repeat 0 2px;
+padding-left: 1.5em;
+font-weight: 700;
+margin-top: 2.5em;
+}
