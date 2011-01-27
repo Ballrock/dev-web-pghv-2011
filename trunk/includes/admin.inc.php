@@ -38,6 +38,16 @@ class Admin
 	
 	public function nouveau_stage($nom, $obj, $prog, $intervenant, $prerequis, $duree, $lieu, $nivcomp, $theme)
 	{
+		$nom = htmlentites($nom);
+		$obj = htmlentites($obj);
+		$prog = htmlentites($prog);
+		$intervenant = htmlentites($intervenant);
+		$prerequis = htmlentites($prerequis);
+		$duree = htmlentites($duree);
+		$lieu = htmlentites($lieu);
+		$nivcomp = htmlentites($nivcomp);
+		$theme = htmlentites($theme);
+		
 		if (get_magic_quotes_gpc()) 
 		{
 			$nom = stripslashes($nom);
@@ -50,15 +60,15 @@ class Admin
 			$nivcomp = stripslashes($nivcomp);
 			$theme = stripslashes($theme);
 		}
-		$nom = mysql_escape_string($nom);
-		$obj = mysql_escape_string($obj);
-		$prog = mysql_escape_string($prog);
-		$intervenant = mysql_escape_string($intervenant);
-		$prerequis = mysql_escape_string($prerequis);
-		$duree = mysql_escape_string($duree);
-		$lieu = mysql_escape_string($lieu);
-		$nivcomp = mysql_escape_string($nivcomp);
-		$theme = mysql_escape_string($theme);
+		$nom = mysql_real_escape_string($nom);
+		$obj = mysql_real_escape_string($obj);
+		$prog = mysql_real_escape_string($prog);
+		$intervenant = mysql_real_escape_string($intervenant);
+		$prerequis = mysql_real_escape_string($prerequis);
+		$duree = mysql_real_escape_string($duree);
+		$lieu = mysql_real_escape_string($lieu);
+		$nivcomp = mysql_real_escape_string($nivcomp);
+		$theme = mysql_real_escape_string($theme);
 		
 		try
 		{
@@ -84,28 +94,164 @@ class Admin
 		return true;
 	}
 	
+	public function modif_stage($id, $nom, $obj, $prog, $intervenant, $prerequis, $duree, $lieu, $nivcomp, $theme)
+	{
+		if(is_int($id)
+		{
+			$nom = htmlentites($nom);
+			$obj = htmlentites($obj);
+			$prog = htmlentites($prog);
+			$intervenant = htmlentites($intervenant);
+			$prerequis = htmlentites($prerequis);
+			$duree = htmlentites($duree);
+			$lieu = htmlentites($lieu);
+			$nivcomp = htmlentites($nivcomp);
+			$theme = htmlentites($theme);
+		
+			if (get_magic_quotes_gpc()) 
+			{
+				$id = stripslashes($id);
+				$nom = stripslashes($nom);
+				$obj = stripslashes($obj);
+				$prog = stripslashes($prog);
+				$intervenant = stripslashes($intervenant);
+				$prerequis = stripslashes($prerequis);
+				$duree = stripslashes($duree);
+				$lieu = stripslashes($lieu);
+				$nivcomp = stripslashes($nivcomp);
+				$theme = stripslashes($theme);
+			}
+			$id = mysql_real_escape_string($id);
+			$nom = mysql_real_escape_string($nom);
+			$obj = mysql_real_escape_string($obj);
+			$prog = mysql_real_escape_string($prog);
+			$intervenant = mysql_real_escape_string($intervenant);
+			$prerequis = mysql_real_escape_string($prerequis);
+			$duree = mysql_real_escape_string($duree);
+			$lieu = mysql_real_escape_string($lieu);
+			$nivcomp = mysql_real_escape_string($nivcomp);
+			$theme = mysql_real_escape_string($theme);
+		
+			try
+			{
+				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+				$req = $this->bdd->prepare('UPDATE formation SET NOM=:nom, OBJECTIF=:obj, PROGRAMME=:prog, INTERVENANT=:intervenant, PREREQUIS=:prerequis, DUREE=:duree, LIEU=:lieu, NIVCOMP=:nivcomp, THEME=:theme WHERE ID=:id', $pdo_options);
+				$req->execute(array(
+					'id' => $id,
+					'nom' => $nom,
+					'obj' => $obj,
+					'prog' => $prog,
+					'intervenant' => $intervenant,
+					'prerequis' => $prerequis,
+					'duree' => $duree,
+					'lieu' => $lieu,
+					'nivcomp' => $nivcomp,
+				'theme' => $theme
+					));
+			}
+			catch (Exception $e)
+			{
+					return $e->getMessage();
+			}
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
 	public function suppress_stage($id)
 	{
 		if(is_int($id))
 		{
-			$req = $this->bdd->prepare('SELECT ID_FORMATION FROM formation WHERE ID_FORMATION=:id');
+				$req = $this->bdd->prepare('DELETE FROM formation WHERE ID_FORMATION=:id');
+				$req->execute(array(
+					'id' => $id
+					));
+				$req->closeCursor();
+				return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	public function nouvelle_session($nom, $debut, $fin, $formation)
+	{
+		$nom = htmlentites($nom);
+		$debut = htmlentites($debut);
+		$fin = htmlentites($fin);
+		$formation = htmlentites($formation);
+		if(get_magic_quotes_gpc())
+		{
+			$nom = stripslashes($nom);
+		}
+		$nom = mysql_real_escape_string($nom);
+		$debut = mysql_real_escape_string($debut);
+		$fin = mysql_real_escape_string($fin);
+		$formation = mysql_real_escape_string($formation);
+		try
+		{
+			$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+			$req = $this->bdd->prepare('INSERT INTO session(IS_SESSION, DATE_DEBUT, DATE_FIN, FORMATION) VALUES (:id, :debut, :fin, :formation)', $pdo_options);
+			$req->execute(array(
+				'id' => '',
+				'debut' => $debut,
+				'fin' => $fin,
+				'formation' => $formation
+				));
+		}
+		return true;
+	}
+	
+	public function modif_session($id, $nom, $debut, $fin, $formation)
+	{
+		if(is_int($id))
+		{
+			$nom = htmlentites($nom);
+			$debut = htmlentites($debut);
+			$fin = htmlentites($fin);
+			$formation = htmlentites($formation);
+			if(get_magic_quotes_gpc())
+			{
+				$nom = stripslashes($nom);
+			}
+			$nom = mysql_real_escape_string($nom);
+			$debut = mysql_real_escape_string($debut);
+			$fin = mysql_real_escape_string($fin);
+			$formation = mysql_real_escape_string($formation);
+			try
+			{
+				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+				$req = $this->bdd->prepare('INSERT INTO session(IS_SESSION, DATE_DEBUT, DATE_FIN, FORMATION) VALUES 
+(:id, :debut, :fin, :formation)', $pdo_options);
+				$req->execute(array(
+					'id' => '',
+					'debut' => $debut,
+					'fin' => $fin,
+					'formation' => $formation
+					));
+			}
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	public function suppress_session($id)
+	{
+		if(is_int($id))
+		{
+			$req = $this->bdd->prepare('DELETE FROM session WHERE ID_SESSION=:id');
 			$req->execute(array(
 				'id' => $id
 				));
-			if($req==NULL)
-			{
-				$req2 = $this->bdd->prepare('DELETE FROM formation WHERE ID_FORMATION=:id');
-				$req2->execute(array(
-					'id' => $id
-					));
-				$req2->closeCursor();
-				$req->closeCursor();
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			$req->closeCursor();
+			return true;
 		}
 		else
 		{
