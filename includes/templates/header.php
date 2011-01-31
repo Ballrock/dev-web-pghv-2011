@@ -260,19 +260,19 @@ alt="accès intranet" title="accès intranet"></a></li>
 			<div id="bandeau">
 				<h1 id="intitule_site">Polytech'Nantes</h1>
 				<div id="flash"><embed type="application/x-shockwave-flash" 
-src="images/bandeau.swf" 
+src="flash/bandeau.swf" 
 style="" id="mymovie" name="mymovie" bgcolor="#011531" quality="high" 
 wmode="transparent" align="middle" width="678" height="171">
 <noscript>
 <div>
         <!--[if !IE]> -->
-        <object type="application/x-shockwave-flash" data="/flash/bandeau.swf?dos=/flash/polytech/&amp;imgs=1.jpg,2.jpg,3.jpg,4.jpg,5.jpg&amp;module=&amp;coul=e5e5e5&amp;texte=" width="678" height="171" id="Diaporama_univ" name="Diaporama_univ">
+        <object type="application/x-shockwave-flash" data="/flash/bandeau.swf?dos=/flash/&amp;imgs=image1.jpg&amp;module=&amp;coul=e5e5e5&amp;texte=" width="678" height="171" id="Diaporama_univ" name="Diaporama_univ">
         <!-- <![endif]-->
 
 
         <!--[if IE]>
         <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="678" height="171" id="Diaporama_univ">
-                <param name="movie" value="/flash/bandeau.swf?dos=/flash/polytech/&amp;imgs=1.jpg,2.jpg,3.jpg,4.jpg,5.jpg&amp;module=&amp;coul=e5e5e5&amp;texte=" />
+                <param name="movie" value="/flash/bandeau.swf?dos=/flash/&amp;imgs=image1.jpg&amp;module=&amp;coul=e5e5e5&amp;texte=" />
         <!--><!--dgx-->
                 <param name="allowScriptAccess" value="sameDomain" />
                 <param name="quality" value="high" />
@@ -314,17 +314,7 @@ href="./index.php"><em>Catalogue Formation</em></a>&nbsp;</p>
 				
 					<h2>Catalogue des Formations</h2>
 						
-											<script type="text/javascript" src="js/addthis_widget.js"></script>
-				<script type="text/javascript">
-					addthis_pub             = 'UnivNantes';
-					addthis_logo_background = '020a23';
-					addthis_logo_color      = '020a23';
-					addthis_language	= 'fr';
-					var addthis_localize = {
-						share_caption: "Partager",
-					}
-				</script>
-
+								
 				
 
 						<div class="social-bookmarks-services" style="float: right;">

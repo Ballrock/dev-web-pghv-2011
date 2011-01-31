@@ -2,14 +2,14 @@
 
 $page="";
 
-include('header.php');
+include('includes/templates/header.php');
 //-------------Contenu Page-------------
 if ($page=='admin'){}
 elseif ($page=='liste'){}
 else
 {
-	include('accueil.php');
+	include('pages/accueil.php');
 }
 //-------------FIN --- Contenu Page-------------
-include('footer.php');
+include('includes/templates/footer.php');
 ?>
