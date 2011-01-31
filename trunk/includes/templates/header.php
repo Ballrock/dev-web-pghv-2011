@@ -259,29 +259,7 @@ alt="accès intranet" title="accès intranet"></a></li>
 		<div id="page">
 			<div id="bandeau">
 				<h1 id="intitule_site">Polytech'Nantes</h1>
-				<div id="flash"><embed type="application/x-shockwave-flash" 
-src="flash/bandeau.swf" 
-style="" id="mymovie" name="mymovie" bgcolor="#011531" quality="high" 
-wmode="transparent" align="middle" width="678" height="171">
-<noscript>
-<div>
-        <!--[if !IE]> -->
-        <object type="application/x-shockwave-flash" data="/flash/bandeau.swf?dos=/flash/&amp;imgs=image1.jpg&amp;module=&amp;coul=e5e5e5&amp;texte=" width="678" height="171" id="Diaporama_univ" name="Diaporama_univ">
-        <!-- <![endif]-->
-
-
-        <!--[if IE]>
-        <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="678" height="171" id="Diaporama_univ">
-                <param name="movie" value="/flash/bandeau.swf?dos=/flash/&amp;imgs=image1.jpg&amp;module=&amp;coul=e5e5e5&amp;texte=" />
-        <!--><!--dgx-->
-                <param name="allowScriptAccess" value="sameDomain" />
-                <param name="quality" value="high" />
-                <param name="wmode" value="transparent" />
-                <param name="bgcolor" value="#011531" />
-        </object>
-        <!-- <![endif]-->
-</div>
-</noscript>
+				<div id="flash"><img src="images/bann.png" alt="" width="678" height="171">
 </div>
 			</div> <!-- fin #bandeau -->
 
