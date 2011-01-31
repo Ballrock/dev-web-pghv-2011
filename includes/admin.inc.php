@@ -96,7 +96,7 @@ class Admin
 	
 	public function modif_stage($id, $nom, $obj, $prog, $intervenant, $prerequis, $duree, $lieu, $nivcomp, $theme)
 	{
-		if(is_int($id)
+		if(is_int($id))
 		{
 			$nom = htmlentites($nom);
 			$obj = htmlentites($obj);
@@ -236,12 +236,13 @@ class Admin
 					'fin' => $fin,
 					'formation' => $formation
 					));
+					
 			}
-			return true;
 			catch (Exception $e)
 			{
 				return $e->getMessage();
 			}
+			return true;
 		}
 		else
 		{
