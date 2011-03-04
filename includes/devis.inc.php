@@ -2,29 +2,26 @@
 include('.\config.inc.php');
 class Devis
 {
-	private $bdd;
-	
+	private $session = null;
 	
 	private function __construct()
 	{
-		try
-		{
-			$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-			$this->bdd = new PDO('mysql:host='.$DB_HOST.';dbname='.$DB_NAME, $DB_USERNAME, $DB_PASSWORD, $pdo_options);
-		}
-		catch (Exception $e)
-		{
-				die('Erreur : ' . $e->getMessage());
-		}
+		$session = array();
 	}
 	
 	private function __destruct()
 	{
+		unset($session);
 	}
 	
-	//TODO
-	public function nouveau_devis()
+	public function ajout_session($stage)
 	{
+		$session[] = $stage;
+		return true;
 	}
 	
-	public function 
+	public function suppr_session($id)
+	{
+		unset($session($id));
+		$session = array_values($array);
+	}
