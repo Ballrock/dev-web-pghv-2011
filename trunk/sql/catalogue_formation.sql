@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Sam 05 Mars 2011 à 16:10
+-- Généré le : Sam 05 Mars 2011 à 18:10
 -- Version du serveur: 5.1.53
 -- Version de PHP: 5.3.4
 
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `contenu_panier` (
 CREATE TABLE IF NOT EXISTS `devis` (
   `ID_DEVIS` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `ID_UTILISATEUR` int(11) unsigned NOT NULL,
-  `DATE_DEVIS` date NOT NULL,
+  `DATE_DEVIS` int(11) unsigned NOT NULL,
   PRIMARY KEY (`ID_DEVIS`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -206,12 +206,17 @@ CREATE TABLE IF NOT EXISTS `status` (
   `ID_STATUS` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `NOM` varchar(255) NOT NULL,
   PRIMARY KEY (`ID_STATUS`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Contenu de la table `status`
 --
 
+INSERT INTO `status` (`ID_STATUS`, `NOM`) VALUES
+(1, 'Salarié'),
+(2, 'Entreprise'),
+(3, 'Etudiant'),
+(4, 'Chomeur');
 
 -- --------------------------------------------------------
 
@@ -261,11 +266,12 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `NOM` varchar(255) NOT NULL,
   `PRENOM` varchar(255) NOT NULL,
   `EMAIL` varchar(255) NOT NULL,
+  `MOTDEPASSE` varchar(255) NOT NULL,
   `STATUS` int(11) unsigned NOT NULL,
-  `DATEINSCRIPT` date NOT NULL,
+  `DATEINSCRIPT` int(11) unsigned NOT NULL,
   `NIVEAU` int(11) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`ID_UTILISATEUR`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Contenu de la table `utilisateur`
