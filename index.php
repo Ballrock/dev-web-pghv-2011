@@ -57,6 +57,10 @@ else
 	{
 		include('pages/accueil.php');
 	}
+	elseif($page=="deco")
+	{
+		include('pages/deconnexion.php');
+	}
 	else
 	{
 		if(isset($_SESSION['userlevel']))
@@ -65,11 +69,20 @@ else
 			{
 				if ($page=='new_formation')
 				{}
+				else
+				{
+					include('pages/admin_index.php');
+				}
 			}
 			elseif ($_SESSION['userlevel']>=1 && $_SESSION['userlevel']<100)
 			{
 				if ($page=='consultation')
-				{}
+				{
+				}
+				else
+				{
+					include('pages/user_index.php');
+				}
 			}
 			else
 			{
