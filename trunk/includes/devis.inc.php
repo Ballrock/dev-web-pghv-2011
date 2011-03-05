@@ -1,5 +1,4 @@
 <?php
-include('.\config.inc.php');
 class Devis
 {
 	private $bdd;
@@ -8,6 +7,10 @@ class Devis
 	
 	private function __construct()
 	{
+		if(!isset($DB_DBNAME))
+		{
+			include('includes\config.inc.php');
+		}
 		try
 		{
 			$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
