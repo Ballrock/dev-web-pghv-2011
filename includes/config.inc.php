@@ -12,5 +12,5 @@ $DB_HOST='localhost';
 $DB_DBNAME='catalogue_formation';
 $DB_USERNAME='root';
 $DB_PASSWORD='';
-
+$ROOT='http://localhost/dev-web-pghv-2011/';
 ?>

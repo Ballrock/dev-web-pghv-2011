@@ -1,14 +1,86 @@
 <?php
+/*------- index.php ---------
 
-$page="";
+Gestion de Catalogue de formation
+
+Date :
+Auteurs :
+
+------------------------------------------*/
 
 include('includes/templates/header.php');
-//-------------Contenu Page-------------
-if ($page=='admin'){}
-elseif ($page=='liste'){}
+
+//PROTECTION DU GET
+if(isset($_GET['page']))
+{
+	$page = htmlspecialchars($_GET['page']);
+}
 else
 {
-	include('pages/accueil.php');
+	$page="";
+}
+
+//-------------Contenu Page-------------
+if($page=="")
+{
+	if(isset($_SESSION['userlevel']))
+	{
+		if($_SESSION['userlevel']==100)
+		{
+			include('pages/admin_index.php');
+		}
+		elseif ($_SESSION['userlevel']>=1 && $_SESSION['userlevel']<100)
+		{
+			include('pages/user_index.php');
+		}
+		else
+		{
+			include('pages/accueil.php');
+		}
+	}
+	else
+	{
+		include('pages/accueil.php');
+	}
+}
+else
+{
+	if($page=="connect")
+	{
+		include('pages/connexion.php');
+	}
+	elseif($page=="inscrip")
+	{
+		include('pages/inscription.php');
+	}
+	elseif($page=="accueil")
+	{
+		include('pages/accueil.php');
+	}
+	else
+	{
+		if(isset($_SESSION['userlevel']))
+		{
+			if($_SESSION['userlevel']==100)
+			{
+				if ($page=='new_formation')
+				{}
+			}
+			elseif ($_SESSION['userlevel']>=1 && $_SESSION['userlevel']<100)
+			{
+				if ($page=='consultation')
+				{}
+			}
+			else
+			{
+				include('pages/accueil.php');
+			}
+		}
+		else
+		{
+			include('pages/accueil.php');
+		}
+	}
 }
 //-------------FIN --- Contenu Page-------------
 include('includes/templates/footer.php');
