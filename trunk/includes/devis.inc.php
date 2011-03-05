@@ -3,9 +3,10 @@ class Devis
 {
 	private $bdd;
 	private $session = null;
-	private $cout = 0;
+	private $cout;
+	private $user = null;
 	
-	private function __construct()
+	private function __construct($id_user)
 	{
 		if(!isset($DB_DBNAME))
 		{
@@ -21,6 +22,8 @@ class Devis
 				die('Erreur : ' . $e->getMessage());
 		}
 		$session = array();
+		$user = $id_user;
+		$cout = 0;
 	}
 	
 	private function __destruct()
@@ -30,14 +33,17 @@ class Devis
 	
 	public function ajout_session($stage)
 	{
-		$session[] = $stage;
+		$session[0][] = $stage;
+		$session[1][] = 1;
 		return true;
 	}
 	
 	public function suppr_session($id)
 	{
-		unset($session($id));
+		unset($session[0][$id]);
+		unset($session[1][$id]);
 		$session = array_values($array);
+		return true;
 	}
 	
 	public function cout()
@@ -52,5 +58,5 @@ class Devis
 	{
 		return $cout;
 	}
-
+	
 }
