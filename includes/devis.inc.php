@@ -46,6 +46,25 @@ class Devis
 		return true;
 	}
 	
+	public function inc_participant($id)
+	{
+		$session[1][$id]++;
+		return true;
+	}
+	
+	public function dec_participant($id)
+	{
+		if($session[1][$id] == 1)
+		{
+			self::suppr_session($id);
+		}
+		else
+		{
+			$session[1][$id]--;
+		}
+		return true;
+	}
+	
 	public function cout()
 	{
 		foreach($session as $i => $value)
