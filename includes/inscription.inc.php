@@ -29,10 +29,10 @@ class Inscription
 	{
 	}
 	
-	public function register_values($nom,$prenom,$status,$email,$mdp)
+	public function register_values($nom,$prenom,$status,$email,$mdp,$nom_ent,$contact_ent,$tel_ent,$email_ent)
 	{
 		$error="noerror";
-		if($nom=="" || $prenom=="" || $status=="" || $email=="" || $mdp=="")
+		if($nom=="" || $prenom=="" || $status=="" || $email=="" || $mdp=="" || (($status != 3 && $status != 4) && ( $nom_ent=="" || $contact_ent=="" || $tel_ent=="" || $email_ent==""))) //Demandeur d'emploi et Etudiant
 		{
 			$error="Un des champs de l'inscription est vide";
 		}
@@ -77,23 +77,36 @@ class Inscription
 					}
 					else
 					{
-							$nom = htmlentities($nom);
-							$prenom = htmlentities($prenom);
-							$mdp = htmlentities($mdp);
-						
-							if (get_magic_quotes_gpc()) 
-							{
-								$nom = stripslashes($nom);
-								$prenom = stripslashes($prenom);
-								$mdp = stripslashes($mdp);
-							}
-							$nom = mysql_real_escape_string($nom);
-							$prenom = mysql_real_escape_string($prenom);
-							$mdp = mysql_real_escape_string($mdp);
+						$nom = htmlentities($nom);
+						$prenom = htmlentities($prenom);
+						$mdp = htmlentities($mdp);
+						$nom_ent = htmlentities($nom_ent);
+						$contact_ent = htmlentities($contact_ent);
+						$tel_ent = htmlentities($tel_ent);
+						$email_ent = htmlentities($email_ent);
+						if (get_magic_quotes_gpc()) 
+						{
+							$nom = stripslashes($nom);
+							$prenom = stripslashes($prenom);
+							$mdp = stripslashes($mdp);
+							$nom_ent = stripslashes($nom_ent);
+							$contact_ent = stripslashes($contact_ent);
+							$tel_ent = stripslashes($tel_ent);
+							$email_ent = stripslashes($email_ent);
+						}
+						$nom = mysql_real_escape_string($nom);
+						$prenom = mysql_real_escape_string($prenom);
+						$mdp = mysql_real_escape_string($mdp);
+						$nom_ent =  mysql_real_escape_string($nom_ent);
+						$contact_ent =  mysql_real_escape_string($contact_ent);
+						$tel_ent =  mysql_real_escape_string($tel_ent);
+						$email_ent =  mysql_real_escape_string($email_ent);
+						if($status == 3 || $status == 4)
+						{
 							try
 							{
 								$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-								$req = $this->bdd->prepare('INSERT INTO utilisateur(ID_UTILISATEUR, NOM, PRENOM, EMAIL, MOTDEPASSE, STATUS, DATEINSCRIPT, NIVEAU) VALUES ("", :nom, :prenom, :email, :motdepasse, :status, :date, 1)', $pdo_options);
+								$req = $this->bdd->prepare('INSERT INTO utilisateur(ID_UTILISATEUR, NOM, PRENOM, EMAIL, MOTDEPASSE, STATUS, ENTREPRISE, DATEINSCRIPT, NIVEAU) VALUES ("", :nom, :prenom, :email, :motdepasse, :status,0 ,:date, 1)', $pdo_options);
 								$req->execute(array(
 									'nom' => $nom,
 									'prenom' => $prenom,
@@ -107,6 +120,33 @@ class Inscription
 							{
 									return $e->getMessage();
 							}
+						}
+						else
+						{
+							try
+							{
+								$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+								$req = $this->bdd->prepare('INSERT INTO utilisateur(ID_UTILISATEUR, NOM, PRENOM, EMAIL, MOTDEPASSE, STATUS, ENTREPRISE, NOM_ENTREPRISE, CONTACT_ENTREPRISE, TEL_CONTACT_ENT, MAIL_CONTACT_ENT, DATEINSCRIPT, NIVEAU) VALUES ("", :nom, :prenom, :email, :motdepasse, :status, :entreprise, :nom_ent, :contact_ent, :tel_ent, :email_ent, :date, 1)', $pdo_options);
+								$req->execute(array(
+									'nom' => $nom,
+									'prenom' => $prenom,
+									'email' => $email,
+									'motdepasse' => sha1($mdp),
+									'status' => $status,
+									'entreprise' => 1,
+									'nom_ent' => $nom_ent,
+									'contact_ent' => $contact_ent,
+									'tel_ent' => $tel_ent,
+									'email_ent' => $email_ent,
+									'date' => time(),
+									));
+							}
+							catch (Exception $e)
+							{
+									return $e->getMessage();
+							}
+						}
+							
 					}
 				}
 			}

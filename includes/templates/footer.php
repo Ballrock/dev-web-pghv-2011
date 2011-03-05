@@ -231,23 +231,18 @@ else
 				<li id="focus">			
 					<em>			
 					<a href="#">
-						Menu n°1
+						Formation
 					</a>			
 					</em>		     
 						<ul>
-						<li>	
+							<li>	
 								<a href="#">
-									Sous-Menu 1-1
+									Sessions
 								</a>		
 							</li>						
 							<li>					
 								<a href="#">
-									Sous-Menu 1-2
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									Sous-Menu 1-3
+									Formations
 								</a>
 							</li>
 						</ul>
@@ -255,23 +250,37 @@ else
 				<li id="focus">
 					<em>
 					<a href="#">
-						Menu n°2
+						Utilisateurs
 					</a>
 					<em>
 					<ul>
-						<li>	
+							<li>	
 								<a href="#">
-									Sous-Menu 2-1
+									Utilisateurs
 								</a>		
 							</li>						
 							<li>					
 								<a href="#">
-									Sous-Menu 2-2
+									Devis
 								</a>
 							</li>
-							<li>
+						</ul>
+				</li>
+				<li id="focus">
+					<em>
+					<a href="#">
+						Autre
+					</a>
+					<em>
+					<ul>
+							<li>	
 								<a href="#">
-									Sous-Menu 2-3
+									Statistiques
+								</a>		
+							</li>						
+							<li>					
+								<a href="#">
+									Enseignants
 								</a>
 							</li>
 						</ul>
@@ -329,6 +338,14 @@ else
 						</ul>
 				</li>';
 	}
+	echo '	<li id="focus">			
+					<em>			
+					<a href="'.$ROOT.'?page=deco">
+						Déconnexion
+					</a>			
+					</em>
+					</li>';
+	
 }
 echo <<<EOF
 		</ul>
