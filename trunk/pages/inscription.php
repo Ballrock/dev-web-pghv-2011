@@ -47,11 +47,34 @@ echo '<div class="style1">
 	</table>
 	<br />
 	</div><!-- fin .style2_contenu -->
+		<h3>Informations Entreprise</h3>
+	<div class="style2_contenu">
+	A laisser vide si vous êtes demandeur d\'emploi ou étudiant.<br />
+	<table border="0">
+		<tr>
+			<td>Nom de l\'Entreprise</td>
+			<td><input type="text" name="nom_ent" id="nom_ent"/></td>
+		</tr>
+		<tr>
+			<td>Contact</td>
+			<td><input type="text" name="contact_ent" id="contact_ent"/></td>
+		</tr>
+		<tr>
+			<td>Téléphone Contact</td>
+			<td><input type="text" name="tel_ent" id="tel_ent"/></td>
+		</tr>	
+		<tr>
+			<td>Email Contact</td>
+			<td><input type="text" name="email_ent" id="email_ent"/></td>
+		</tr>		
+	</table>
+	<br />
+	</div><!-- fin .style2_contenu -->
 	<h3>Informations de connexion</h3>	
 	<div class="style2_contenu">	
 	<table>
 		<tr>
-			<td>Email</td>
+			<td>Email de Login</td>
 			<td><input type="text" name="email" id="email" /></td>
 		</tr>
 		<tr>
@@ -69,7 +92,7 @@ echo '<div class="style1">
 else
 {
 	$inscription = new Inscription();
-	$resultat = $inscription->register_values($_POST['nom'],$_POST['prenom'],$_POST['status'],$_POST['email'],$_POST['mdp']);
+	$resultat = $inscription->register_values($_POST['nom'],$_POST['prenom'],$_POST['status'],$_POST['email'],$_POST['mdp'],$_POST['nom_ent'],$_POST['contact_ent'],$_POST['tel_ent'],$_POST['email_ent']);
 	if($resultat!="noerror")
 	{
 		echo '

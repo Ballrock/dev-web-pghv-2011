@@ -5,7 +5,7 @@ if(!isset($_POST['email']) && !isset($_POST['password']))
 echo '<div class="style1">
 	<h3>Connexion</h3>
 	<div class="style1_contenu"></div>
-	<form action="'.$ROOT.'/index.php?page=connect" method="post">
+	<form action="'.$ROOT.'index.php?page=connect" method="post">
 	<table border="0">
 		<tr>
 			<td>Email</td>
