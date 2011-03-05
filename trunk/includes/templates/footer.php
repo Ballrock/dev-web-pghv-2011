@@ -187,32 +187,66 @@ href="http://web.polytech.univ-nantes.fr/78106627/0/fiche___pagelibre/&amp;RH=11
   </div> <!-- fin #page_deco2 -->
 </div> <!-- fin #page -->
 	<div id="navigation">
+
 	   	<div id="menu_secondaire_deco2">
   		<div id="menu_secondaire_deco1">
   		  <ul id="menu_secondaire">
+EOF;
+if (session_id()=="" || !isset($_SESSION['userlevel']))
+{
+	echo '
+					<li id="focus">			
+					<em>			
+					<a href="'.$ROOT.'">
+						Accueil
+					</a>			
+					</em>
+					</li>
+					<li id="focus">			
+					<em>			
+					<a href="#">
+						Menu
+					</a>			
+					</em>		     
+						<ul>
+						<li>	
+								<a href="'.$ROOT.'/index.php?page=connect">
+									Connection
+								</a>		
+							</li>						
+							<li>					
+								<a href="'.$ROOT.'/index.php?page=inscrip">
+									Inscription
+								</a>
+							</li>
+						</ul>
+				</li>';
+
+}
+else
+{
+	if($_SESSION['userlevel']==100)
+	{
+		echo'
 				<li id="focus">			
 					<em>			
-					<a 
-href="#">
+					<a href="#">
 						Menu n°1
 					</a>			
 					</em>		     
 						<ul>
 						<li>	
-								<a 
-href="#">
+								<a href="#">
 									Sous-Menu 1-1
 								</a>		
 							</li>						
 							<li>					
-								<a 
-href="#">
+								<a href="#">
 									Sous-Menu 1-2
 								</a>
 							</li>
 							<li>
-								<a 
-href="#">
+								<a href="#">
 									Sous-Menu 1-3
 								</a>
 							</li>
@@ -220,32 +254,83 @@ href="#">
 				</li>
 				<li id="focus">
 					<em>
-					<a 
-href="#">
+					<a href="#">
 						Menu n°2
 					</a>
 					<em>
 					<ul>
 						<li>	
-								<a 
-href="#">
+								<a href="#">
 									Sous-Menu 2-1
 								</a>		
 							</li>						
 							<li>					
-								<a 
-href="#">
+								<a href="#">
 									Sous-Menu 2-2
 								</a>
 							</li>
 							<li>
-								<a 
-href="#">
+								<a href="#">
 									Sous-Menu 2-3
 								</a>
 							</li>
 						</ul>
+				</li>';
+	}
+	elseif($_SESSION['userlevel']<100)
+	{
+		echo'
+				<li id="focus">			
+					<em>			
+					<a href="#">
+						Menu n°1
+					</a>			
+					</em>		     
+						<ul>
+						<li>	
+								<a href="#">
+									Sous-Menu 1-1
+								</a>		
+							</li>						
+							<li>					
+								<a href="#">
+									Sous-Menu 1-2
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Sous-Menu 1-3
+								</a>
+							</li>
+						</ul>
 				</li>
+				<li id="focus">
+					<em>
+					<a href="#">
+						Menu n°2
+					</a>
+					<em>
+					<ul>
+						<li>	
+								<a href="#">
+									Sous-Menu 2-1
+								</a>		
+							</li>						
+							<li>					
+								<a href="#">
+									Sous-Menu 2-2
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Sous-Menu 2-3
+								</a>
+							</li>
+						</ul>
+				</li>';
+	}
+}
+echo <<<EOF
 		</ul>
 	      </div> <!-- fin .menu_secondaire_deco1 -->
 	      </div> <!-- fin .menu_secondaire_deco2 -->
