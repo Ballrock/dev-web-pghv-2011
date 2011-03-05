@@ -12,7 +12,7 @@ echo '<div class="style1">
 <div class="style2">
 	<h3>Informations</h3>
 	<div class="style2_contenu">
-	<form action="'.$ROOT.'/index.php?page=inscrip" method="post">
+	<form action="'.$ROOT.'index.php?page=inscrip" method="post">
 	<table border="0">
 		<tr>
 			<td>Nom</td>
@@ -76,7 +76,7 @@ else
 		<div class="style1">
 			<h3>Inscription</h3>
 			<div class="style1_contenu"></div>
-				Une erreur est survenue lors de votre inscription : <br /> <h4>' . $resultat . '</h4>
+				Une erreur est survenue lors de votre inscription : <br /> <h4>' . $resultat . '</h4> <br/><a href="javascript:history.back()">Retour</a>
 			</div> <!-- fin .style1_contenu -->
 		</div> <!-- fin .style1 -->	
 		</div>';
@@ -87,7 +87,7 @@ else
 		<div class="style1">
 			<h3>Inscription</h3>
 			<div class="style1_contenu"></div>
-				<h4>L\'inscription c\'est bien déroulée vous pouvez maintenant vous connecter</h4>
+				<h4>L\'inscription c\'est bien déroulée vous pouvez maintenant vous connecter</h4><br/><a href='.$ROOT.'>Retour</a>
 			</div> <!-- fin .style1_contenu -->
 		</div> <!-- fin .style1 -->	
 		</div>';

@@ -49,6 +49,12 @@ class Inscription
 				}
 				else
 				{
+					$email = htmlentities($email);
+					if (get_magic_quotes_gpc()) 
+					{
+						$email = stripslashes($email);
+					}
+					$email = mysql_real_escape_string($email);
 					try
 					{
 						$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
@@ -73,19 +79,16 @@ class Inscription
 					{
 							$nom = htmlentities($nom);
 							$prenom = htmlentities($prenom);
-							$email = htmlentities($email);
 							$mdp = htmlentities($mdp);
 						
 							if (get_magic_quotes_gpc()) 
 							{
 								$nom = stripslashes($nom);
 								$prenom = stripslashes($prenom);
-								$email = stripslashes($email);
 								$mdp = stripslashes($mdp);
 							}
 							$nom = mysql_real_escape_string($nom);
 							$prenom = mysql_real_escape_string($prenom);
-							$email = mysql_real_escape_string($email);
 							$mdp = mysql_real_escape_string($mdp);
 							try
 							{
