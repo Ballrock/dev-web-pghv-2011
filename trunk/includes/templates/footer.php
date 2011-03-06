@@ -241,7 +241,7 @@ else
 								</a>		
 							</li>						
 							<li>					
-								<a href="#">
+								<a href="'.$ROOT.'/index.php?page=admin_forma">
 									Formations
 								</a>
 							</li>

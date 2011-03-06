@@ -19,166 +19,270 @@ class Admin
 		{
 				die('Erreur : ' . $e->getMessage());
 		}
-    	self::$unique = $this;
-    }
-	
-	private function __destruct()
-    {
-    }
+    }	
 	
 	public static function getInstance()
 	{
-		if($unique!=NULL)
+		if(is_null(self::$unique)) {
+		self::$unique = new Admin();  
+		}
+ 
+		return self::$unique;
+	}
+	
+	public function nouvelle_formation($nom, $obj, $prog, $intervenant, $prerequis, $duree, $lieu, $nivcomp, $theme)
+	{
+		$error="noerror";
+		if($nom=="" || $obj=="" || $prog=="" || $intervenant=="" || $prerequis=="" || $duree=="" || $lieu=="" || $nivcomp=="" || $theme=="")
 		{
-			return Admin::unique;
+			$error="Un des champs est vide";
 		}
 		else
 		{
-			self::__constuct();
-			return Admin::unique;
-		}
-	}
-	
-	public function nouveau_stage($nom, $obj, $prog, $intervenant, $prerequis, $duree, $lieu, $nivcomp, $theme)
-	{
-		$nom = htmlentites($nom);
-		$obj = htmlentites($obj);
-		$prog = htmlentites($prog);
-		$intervenant = htmlentites($intervenant);
-		$prerequis = htmlentites($prerequis);
-		$duree = htmlentites($duree);
-		$lieu = htmlentites($lieu);
-		$nivcomp = htmlentites($nivcomp);
-		$theme = htmlentites($theme);
-		
-		if (get_magic_quotes_gpc()) 
-		{
-			$nom = stripslashes($nom);
-			$obj = stripslashes($obj);
-			$prog = stripslashes($prog);
-			$intervenant = stripslashes($intervenant);
-			$prerequis = stripslashes($prerequis);
-			$duree = stripslashes($duree);
-			$lieu = stripslashes($lieu);
-			$nivcomp = stripslashes($nivcomp);
-			$theme = stripslashes($theme);
-		}
-		$nom = mysql_real_escape_string($nom);
-		$obj = mysql_real_escape_string($obj);
-		$prog = mysql_real_escape_string($prog);
-		$intervenant = mysql_real_escape_string($intervenant);
-		$prerequis = mysql_real_escape_string($prerequis);
-		$duree = mysql_real_escape_string($duree);
-		$lieu = mysql_real_escape_string($lieu);
-		$nivcomp = mysql_real_escape_string($nivcomp);
-		$theme = mysql_real_escape_string($theme);
-		
-		try
-		{
-			$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-			$req = $this->bdd->prepare('INSERT INTO formation(ID_FORMATION, NOM, OBJECTIF, PROGRAMME, INTERVENANT, PREREQUIS, DUREE, LIEU, NIVCOMP, THEME) VALUES (:id, :nom, :obj, :prog, :intervenant, :prerequis, :duree, :lieu, :nivcomp, :theme)', $pdo_options);
-			$req->execute(array(
-				'id' => '',
-				'nom' => $nom,
-				'obj' => $obj,
-				'prog' => $prog,
-				'intervenant' => $intervenant,
-				'prerequis' => $prerequis,
-				'duree' => $duree,
-				'lieu' => $lieu,
-				'nivcomp' => $nivcomp,
-				'theme' => $theme
-				));
-		}
-		catch (Exception $e)
-		{
-				return $e->getMessage();
-		}
-		return true;
-	}
-	
-	public function modif_stage($id, $nom, $obj, $prog, $intervenant, $prerequis, $duree, $lieu, $nivcomp, $theme)
-	{
-		if(is_int($id))
-		{
-			$nom = htmlentites($nom);
-			$obj = htmlentites($obj);
-			$prog = htmlentites($prog);
-			$intervenant = htmlentites($intervenant);
-			$prerequis = htmlentites($prerequis);
-			$duree = htmlentites($duree);
-			$lieu = htmlentites($lieu);
-			$nivcomp = htmlentites($nivcomp);
-			$theme = htmlentites($theme);
-		
-			if (get_magic_quotes_gpc()) 
+			if(!is_numeric($intervenant) || !is_numeric($nivcomp) || !is_numeric($theme))
 			{
-				$id = stripslashes($id);
-				$nom = stripslashes($nom);
-				$obj = stripslashes($obj);
-				$prog = stripslashes($prog);
-				$intervenant = stripslashes($intervenant);
-				$prerequis = stripslashes($prerequis);
-				$duree = stripslashes($duree);
-				$lieu = stripslashes($lieu);
-				$nivcomp = stripslashes($nivcomp);
-				$theme = stripslashes($theme);
+				$error="Problème avec l'intervenant, le niveau de competence ou le theme";
 			}
-			$id = mysql_real_escape_string($id);
-			$nom = mysql_real_escape_string($nom);
-			$obj = mysql_real_escape_string($obj);
-			$prog = mysql_real_escape_string($prog);
-			$intervenant = mysql_real_escape_string($intervenant);
-			$prerequis = mysql_real_escape_string($prerequis);
-			$duree = mysql_real_escape_string($duree);
-			$lieu = mysql_real_escape_string($lieu);
-			$nivcomp = mysql_real_escape_string($nivcomp);
-			$theme = mysql_real_escape_string($theme);
-		
+			else
+			{
+				$nom = htmlentities($nom);
+				$obj = htmlentities($obj);
+				$prog = htmlentities($prog);
+				$intervenant = htmlentities($intervenant);
+				$prerequis = htmlentities($prerequis);
+				$duree = htmlentities($duree);
+				$lieu = htmlentities($lieu);
+				$nivcomp = htmlentities($nivcomp);
+				$theme = htmlentities($theme);
+				
+				if (get_magic_quotes_gpc()) 
+				{
+					$nom = stripslashes($nom);
+					$obj = stripslashes($obj);
+					$prog = stripslashes($prog);
+					$intervenant = stripslashes($intervenant);
+					$prerequis = stripslashes($prerequis);
+					$duree = stripslashes($duree);
+					$lieu = stripslashes($lieu);
+					$nivcomp = stripslashes($nivcomp);
+					$theme = stripslashes($theme);
+				}
+				$nom = mysql_real_escape_string($nom);
+				$obj = mysql_real_escape_string($obj);
+				$prog = mysql_real_escape_string($prog);
+				$intervenant = mysql_real_escape_string($intervenant);
+				$prerequis = mysql_real_escape_string($prerequis);
+				$duree = mysql_real_escape_string($duree);
+				$lieu = mysql_real_escape_string($lieu);
+				$nivcomp = mysql_real_escape_string($nivcomp);
+				$theme = mysql_real_escape_string($theme);
+				try
+				{
+					$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+					$req = $this->bdd->prepare('INSERT INTO formation(ID_FORMATION, NOM, OBJECTIF, PROGRAMME, INTERVENANT, PREREQUIS, DUREE, LIEU, NIVCOMP, THEME) VALUES (:id, :nom, :obj, :prog, :intervenant, :prerequis, :duree, :lieu, :nivcomp, :theme)', $pdo_options);
+					$req->execute(array(
+						'id' => '',
+						'nom' => $nom,
+						'obj' => $obj,
+						'prog' => $prog,
+						'intervenant' => $intervenant,
+						'prerequis' => $prerequis,
+						'duree' => $duree,
+						'lieu' => $lieu,
+						'nivcomp' => $nivcomp,
+						'theme' => $theme
+						));
+				}
+				catch (Exception $e)
+				{
+						return $e->getMessage();
+				}
+			}
+		}
+		return $error;
+	}
+	
+	public function modif_formation($id, $nom, $obj, $prog, $intervenant, $prerequis, $duree, $lieu, $nivcomp, $theme)
+	{
+		$error="noerror";
+		if(is_numeric($id))
+		{
 			try
 			{
 				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-				$req = $this->bdd->prepare('UPDATE formation SET NOM=:nom, OBJECTIF=:obj, PROGRAMME=:prog, INTERVENANT=:intervenant, PREREQUIS=:prerequis, DUREE=:duree, LIEU=:lieu, NIVCOMP=:nivcomp, THEME=:theme WHERE ID=:id', $pdo_options);
+				$req = $this->bdd->prepare('SELECT ID_FORMATION FROM formation WHERE ID_FORMATION=:id', $pdo_options);
 				$req->execute(array(
 					'id' => $id,
+					));
+				while ($donnees = $req->fetch())
+				{
+					$test = $donnees['ID_FORMATION'];
+				}		
+			}
+			catch (Exception $e)
+			{
+				return $e->getMessage();
+			}
+			if (!isset($test))
+			{
+				$error="Cette formation n'existe pas";
+			}
+			else
+			{
+				if($nom=="" || $obj=="" || $prog=="" || $intervenant=="" || $prerequis=="" || $duree=="" || $lieu=="" || $nivcomp=="" || $theme=="")
+				{
+					$error="Un des champs est vide";
+				}
+				else
+				{
+					if(!is_numeric($intervenant) || !is_numeric($nivcomp) || !is_numeric($theme))
+					{
+						$error="Problème avec l'intervenant, le niveau de competence ou le theme";
+					}
+					else
+					{
+						
+						$nom = htmlentities($nom);
+						$obj = htmlentities($obj);
+						$prog = htmlentities($prog);
+						$intervenant = htmlentities($intervenant);
+						$prerequis = htmlentities($prerequis);
+						$duree = htmlentities($duree);
+						$lieu = htmlentities($lieu);
+						$nivcomp = htmlentities($nivcomp);
+						$theme = htmlentities($theme);
+					
+						if (get_magic_quotes_gpc()) 
+						{
+							$id = stripslashes($id);
+							$nom = stripslashes($nom);
+							$obj = stripslashes($obj);
+							$prog = stripslashes($prog);
+							$intervenant = stripslashes($intervenant);
+							$prerequis = stripslashes($prerequis);
+							$duree = stripslashes($duree);
+							$lieu = stripslashes($lieu);
+							$nivcomp = stripslashes($nivcomp);
+							$theme = stripslashes($theme);
+						}
+						$id = mysql_real_escape_string($id);
+						$nom = mysql_real_escape_string($nom);
+						$obj = mysql_real_escape_string($obj);
+						$prog = mysql_real_escape_string($prog);
+						$intervenant = mysql_real_escape_string($intervenant);
+						$prerequis = mysql_real_escape_string($prerequis);
+						$duree = mysql_real_escape_string($duree);
+						$lieu = mysql_real_escape_string($lieu);
+						$nivcomp = mysql_real_escape_string($nivcomp);
+						$theme = mysql_real_escape_string($theme);
+					
+						try
+						{
+							$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+							$req = $this->bdd->prepare('UPDATE formation SET NOM=:nom, OBJECTIF=:obj, PROGRAMME=:prog, INTERVENANT=:intervenant, PREREQUIS=:prerequis, DUREE=:duree, LIEU=:lieu, NIVCOMP=:nivcomp, THEME=:theme WHERE ID_FORMATION=:id', $pdo_options);
+							$req->execute(array(
+								'id' => $id,
+								'nom' => $nom,
+								'obj' => $obj,
+								'prog' => $prog,
+								'intervenant' => $intervenant,
+								'prerequis' => $prerequis,
+								'duree' => $duree,
+								'lieu' => $lieu,
+								'nivcomp' => $nivcomp,
+							'theme' => $theme
+								));
+						}
+						catch (Exception $e)
+						{
+								return $e->getMessage();
+						}
+					}
+				}
+			}
+		}
+		else
+		{
+			$error="L'id n'est pas de type numérique";
+		}
+		return $error;
+	}
+	
+	public function suppress_formation($id)
+	{
+		$error="noerror";
+		if(!is_numeric($id))
+		{
+			$error="La variable GET n'est pas numérique";	
+		}
+		else
+		{
+			try
+			{
+				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+				$req = $this->bdd->prepare('SELECT ID_FORMATION FROM formation WHERE ID_FORMATION=:id', $pdo_options);
+				$req->execute(array(
+					'id' => $id,
+					));
+				while ($donnees = $req->fetch())
+				{
+					$test = $donnees['ID_FORMATION'];
+				}		
+			}
+			catch (Exception $e)
+			{
+				return $e->getMessage();
+			}
+			if (!isset($test))
+			{
+				$error="Cet ID n'existe pas";
+			}
+			else
+			{
+				$req = $this->bdd->prepare('DELETE FROM formation WHERE ID_FORMATION=:id');
+				$req->execute(array(
+					'id' => $id
+					));
+				$req->closeCursor();
+			}
+		}
+		return $error;
+	}
+	
+	public function ajout_theme($nom, $desc)
+	{
+		$error="noerror";
+		if($nom=="" || $desc=="")
+		{
+			$error="Un des champs est vide";
+		}
+		else
+		{
+			$nom = htmlentities($nom);
+			$desc = htmlentities($desc);
+			if(get_magic_quotes_gpc())
+			{
+				$nom = stripslashes($nom);
+				$desc = stripslashes($desc);
+			}
+			$nom = mysql_real_escape_string($nom);
+			$desc = mysql_real_escape_string($desc);
+			try
+			{
+				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+				$req = $this->bdd->prepare('INSERT INTO theme(ID_THEME, NOM, DESCRIPTION) VALUES (:id, :nom, :desc)', $pdo_options);
+				$req->execute(array(
+					'id' => '',
 					'nom' => $nom,
-					'obj' => $obj,
-					'prog' => $prog,
-					'intervenant' => $intervenant,
-					'prerequis' => $prerequis,
-					'duree' => $duree,
-					'lieu' => $lieu,
-					'nivcomp' => $nivcomp,
-				'theme' => $theme
+					'desc' => $desc
 					));
 			}
 			catch (Exception $e)
 			{
 					return $e->getMessage();
 			}
-			return true;
 		}
-		else
-		{
-			return false;
-		}
-	}
-	
-	public function suppress_stage($id)
-	{
-		if(is_int($id))
-		{
-				$req = $this->bdd->prepare('DELETE FROM formation WHERE ID_FORMATION=:id');
-				$req->execute(array(
-					'id' => $id
-					));
-				$req->closeCursor();
-				return true;
-		}
-		else
-		{
-			return false;
-		}
+		return $error;
 	}
 	
 	public function nouvelle_session($nom, $debut, $fin, $formation)

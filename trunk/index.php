@@ -67,8 +67,10 @@ else
 		{
 			if($_SESSION['userlevel']==100)
 			{
-				if ($page=='new_formation')
-				{}
+				if ($page=='admin_forma')
+				{
+					include('pages/admin_formation.php');
+				}
 				else
 				{
 					include('pages/admin_index.php');
