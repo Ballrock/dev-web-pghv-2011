@@ -61,6 +61,10 @@ else
 	{
 		include('pages/deconnexion.php');
 	}
+	elseif($page=="install")
+	{
+		include('pages/install.php');
+	}
 	else
 	{
 		if(isset($_SESSION['userlevel']))
