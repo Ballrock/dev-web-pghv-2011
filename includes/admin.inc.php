@@ -285,93 +285,164 @@ class Admin
 		return $error;
 	}
 	
-	public function nouvelle_session($nom, $debut, $fin, $formation)
+	public function nouvelle_session($debut, $fin, $formation)
 	{
-		$nom = htmlentites($nom);
-		$debut = htmlentites($debut);
-		$fin = htmlentites($fin);
-		$formation = htmlentites($formation);
-		if(get_magic_quotes_gpc())
+		$error="noerror";
+		if($debut=="" || $fin=="")
 		{
-			$nom = stripslashes($nom);
+			$error="Un des champs est vide";
 		}
-		$nom = mysql_real_escape_string($nom);
-		$debut = mysql_real_escape_string($debut);
-		$fin = mysql_real_escape_string($fin);
-		$formation = mysql_real_escape_string($formation);
-		try
+		else
 		{
-			$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-			$req = $this->bdd->prepare('INSERT INTO session(ID_SESSION, DATE_DEBUT, DATE_FIN, FORMATION) VALUES (:id, :debut, :fin, :formation)', $pdo_options);
-			$req->execute(array(
-				'id' => '',
-				'debut' => $debut,
-				'fin' => $fin,
-				'formation' => $formation
-				));
+			if(!is_numeric($formation))
+			{
+				$error="L'id de formation n'est pas de type numérique";
+			}
+			else
+			{
+				$debut = htmlentities($debut);
+				$fin = htmlentities($fin);
+				if(get_magic_quotes_gpc())
+				{
+					$debut = stripslashes($debut);
+					$fin = stripslashes($fin);
+				}
+				$debut = mysql_real_escape_string($debut);
+				$fin = mysql_real_escape_string($fin);
+				try
+				{
+					$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+					$req = $this->bdd->prepare('INSERT INTO session(ID_SESSION, DATE_DEBUT, DATE_FIN, FORMATION) VALUES (:id, :debut, :fin, :formation)', $pdo_options);
+					$req->execute(array(
+						'id' => '',
+						'debut' => $debut,
+						'fin' => $fin,
+						'formation' => $formation
+						));
+				}
+				catch (Exception $e)
+				{
+						return $e->getMessage();
+				}
+			}
 		}
-		catch (Exception $e)
-		{
-				return $e->getMessage();
-		}
-		return true;
+		return $error;
 	}
 	
-	public function modif_session($id, $nom, $debut, $fin, $formation)
+	public function modif_session($id, $debut, $fin, $formation)
 	{
-		if(is_int($id))
+		$error="noerror";
+		if(is_numeric($id))
 		{
-			$nom = htmlentites($nom);
-			$debut = htmlentites($debut);
-			$fin = htmlentites($fin);
-			$formation = htmlentites($formation);
-			if(get_magic_quotes_gpc())
-			{
-				$nom = stripslashes($nom);
-			}
-			$nom = mysql_real_escape_string($nom);
-			$debut = mysql_real_escape_string($debut);
-			$fin = mysql_real_escape_string($fin);
-			$formation = mysql_real_escape_string($formation);
 			try
 			{
 				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-				$req = $this->bdd->prepare('UPDATE session SET DATE_DEBUT=:debut, DATE_FIN=:fin, FORMATION=:formation WHERE ID_SESSION=:id', $pdo_options);
+				$req = $this->bdd->prepare('SELECT ID_SESSION FROM session WHERE ID_SESSION=:id', $pdo_options);
 				$req->execute(array(
 					'id' => $id,
-					'debut' => $debut,
-					'fin' => $fin,
-					'formation' => $formation
 					));
-					
+				while ($donnees = $req->fetch())
+				{
+					$test = $donnees['ID_SESSION'];
+				}		
 			}
 			catch (Exception $e)
 			{
 				return $e->getMessage();
 			}
-			return true;
+			if (!isset($test))
+			{
+				$error="Cette formation n'existe pas";
+			}
+			else
+			{
+				if($debut=="" || $fin=="")
+				{
+					$error="Un des champs est vide";
+				}
+				else
+				{
+					if(!is_numeric($formation))
+					{
+						$error="L'id de formation n'est pas de type numérique";
+					}
+					else
+					{
+						$debut = htmlentities($debut);
+						$fin = htmlentities($fin);
+						if(get_magic_quotes_gpc())
+						{
+							$debut = stripslashes($debut);
+							$fin = stripslashes($fin);
+						}
+						$debut = mysql_real_escape_string($debut);
+						$fin = mysql_real_escape_string($fin);
+						try
+						{
+							$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+							$req = $this->bdd->prepare('UPDATE session SET DATE_DEBUT=:debut, DATE_FIN=:fin, FORMATION=:formation WHERE ID_SESSION=:id', $pdo_options);
+							$req->execute(array(
+								'id' => $id,
+								'debut' => $debut,
+								'fin' => $fin,
+								'formation' => $formation
+								));
+								
+						}
+						catch (Exception $e)
+						{
+							return $e->getMessage();
+						}
+					}
+				}
+			}
 		}
 		else
 		{
-			return false;
+			$error="L'id n'est pas de type numérique";
 		}
+		return $error;
 	}
 	
 	public function suppress_session($id)
 	{
-		if(is_int($id))
+		$error="noerror";
+		if(!is_numeric($id))
 		{
-			$req = $this->bdd->prepare('DELETE FROM session WHERE ID_SESSION=:id');
-			$req->execute(array(
-				'id' => $id
-				));
-			$req->closeCursor();
-			return true;
+			$error="La variable GET n'est pas numérique";	
 		}
 		else
 		{
-			return false;
+			try
+			{
+				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+				$req = $this->bdd->prepare('SELECT ID_SESSION FROM session WHERE ID_SESSION=:id', $pdo_options);
+				$req->execute(array(
+					'id' => $id,
+					));
+				while ($donnees = $req->fetch())
+				{
+					$test = $donnees['ID_SESSION'];
+				}		
+			}
+			catch (Exception $e)
+			{
+				return $e->getMessage();
+			}
+			if (!isset($test))
+			{
+				$error="Cet ID n'existe pas";
+			}
+			else
+			{
+				$req = $this->bdd->prepare('DELETE FROM session WHERE ID_SESSION=:id');
+				$req->execute(array(
+					'id' => $id
+					));
+				$req->closeCursor();
+			}
 		}
+		return $error;
 	}
 	
 	public function nouveau_enseignant($nom, $prenom, $status, $etablissement)

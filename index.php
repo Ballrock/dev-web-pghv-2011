@@ -78,6 +78,14 @@ else
 				{
 					include('pages/admin_formation.php');
 				}
+				elseif ($page=='admin_session')
+				{
+					include('pages/admin_session.php');
+				}
+				elseif ($page=='admin_user')
+				{
+					include('pages/admin_user.php');
+				}
 				else
 				{
 					include('pages/admin_index.php');
