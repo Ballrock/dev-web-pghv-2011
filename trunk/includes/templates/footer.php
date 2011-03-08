@@ -236,7 +236,7 @@ else
 					</em>		     
 						<ul>
 							<li>	
-								<a href="#">
+								<a href="'.$ROOT.'/index.php?page=admin_session">
 									Sessions
 								</a>		
 							</li>						
@@ -255,7 +255,7 @@ else
 					<em>
 					<ul>
 							<li>	
-								<a href="#">
+								<a href="'.$ROOT.'/index.php?page=admin_user">
 									Utilisateurs
 								</a>		
 							</li>						
