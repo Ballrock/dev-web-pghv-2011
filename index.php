@@ -8,6 +8,13 @@ Auteurs :
 
 ------------------------------------------*/
 
+if(!file_exists('includes/config.inc.php'))
+{
+	include('pages/install.php');
+}
+else
+{
+
 include('includes/templates/header.php');
 
 //PROTECTION DU GET
@@ -61,10 +68,6 @@ else
 	{
 		include('pages/deconnexion.php');
 	}
-	elseif($page=="install")
-	{
-		include('pages/install.php');
-	}
 	else
 	{
 		if(isset($_SESSION['userlevel']))
@@ -103,4 +106,5 @@ else
 }
 //-------------FIN --- Contenu Page-------------
 include('includes/templates/footer.php');
+}
 ?>
