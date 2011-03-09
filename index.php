@@ -86,6 +86,14 @@ else
 				{
 					include('pages/admin_user.php');
 				}
+				elseif ($page=='admin_devis')
+				{
+					include('pages/admin_devis.php');
+				}
+				elseif ($page=='admin_intervenant')
+				{
+					include('pages/admin_intervenant.php');
+				}
 				else
 				{
 					include('pages/admin_index.php');
@@ -93,8 +101,9 @@ else
 			}
 			elseif ($_SESSION['userlevel']>=1 && $_SESSION['userlevel']<100)
 			{
-				if ($page=='consultation')
+				if ($page=='user_devis_consult')
 				{
+					include('pages/user_devis_consult.php');
 				}
 				else
 				{

@@ -445,53 +445,207 @@ class Admin
 		return $error;
 	}
 	
-	public function nouveau_enseignant($nom, $prenom, $status, $etablissement)
+	public function reponse_devis($id, $prix, $comment)
 	{
-		$nom = htmlentites($nom);
-		$prenom = htmlentites($prenom);
-		$status = htmlentites($status);
-		$etablissement = htmlentites($etablissement);
-		if(get_magic_quotes_gpc())
+		$error="noerror";
+		if(is_numeric($id))
 		{
-			$nom = stripslashes($nom);
-		}
-		$nom = mysql_real_escape_string($nom);
-		$prenom = mysql_real_escape_string($prenom);
-		$status = mysql_real_escape_string($status);
-		$etablissement = mysql_real_escape_string($etablissement);
-		try
-		{
-			$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-			$req = $this->bdd->prepare('INSERT INTO intervenant(ID_INTERVENANT, NOM, PRENOM, STATUS, ETABLISSEMENT) VALUES (:id, :nom, :prenom, :satus, :etablissement)', $pdo_options);
-			$req->execute(array(
-				'id' => '',
-				'nom' => $nom,
-				'prenom' => $prenom,
-				'status' => $status,
-				'etablissement' => $etablissement
-				));
-		}
-		catch (Exception $e)
-		{
+			try
+			{
+				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+				$req = $this->bdd->prepare('SELECT ID_DEVIS FROM devis WHERE ID_DEVIS=:id', $pdo_options);
+				$req->execute(array(
+					'id' => $id,
+					));
+				while ($donnees = $req->fetch())
+				{
+					$test = $donnees['ID_DEVIS'];
+				}		
+			}
+			catch (Exception $e)
+			{
 				return $e->getMessage();
+			}
+			if (!isset($test))
+			{
+				$error="Ce devis n'existe pas";
+			}
+			else
+			{
+				if($prix=="" || !is_numeric($prix))
+				{
+					$error="Le prix est invalide";
+				}
+				else
+				{
+					$comment = htmlentities($comment);
+					if(get_magic_quotes_gpc())
+					{
+						$comment = stripslashes($comment);
+					}
+					$comment = mysql_real_escape_string($comment);
+					try
+					{
+						$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+						$req = $this->bdd->prepare('UPDATE devis SET VALIDEE=1, PRIX=:prix, COMMENTAIRE=:comment WHERE ID_DEVIS=:id', $pdo_options);
+						$req->execute(array(
+							'id' => $id,
+							'prix' => $prix,
+							'comment' => $comment
+							));
+							
+					}
+					catch (Exception $e)
+					{
+						return $e->getMessage();
+						}
+				}
+			}
 		}
-		return true;
+		else
+		{
+			$error="L'id n'est pas de type numérique";
+		}
+		return $error;
+	}
+	public function suppress_devis($id)
+	{
+		$error="noerror";
+		if(!is_numeric($id))
+		{
+			$error="La variable GET n'est pas numérique";	
+		}
+		else
+		{
+			try
+			{
+				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+				$req = $this->bdd->prepare('SELECT ID_DEVIS FROM devis WHERE ID_DEVIS=:id', $pdo_options);
+				$req->execute(array(
+					'id' => $id,
+					));
+				while ($donnees = $req->fetch())
+				{
+					$test = $donnees['ID_DEVIS'];
+				}		
+			}
+			catch (Exception $e)
+			{
+				return $e->getMessage();
+			}
+			if (!isset($test))
+			{
+				$error="Cet ID n'existe pas";
+			}
+			else
+			{
+				$req = $this->bdd->prepare('DELETE FROM devis WHERE ID_DEVIS=:id');
+				$req->execute(array(
+					'id' => $id
+					));
+				$req->closeCursor();
+				$req = $this->bdd->prepare('DELETE FROM contenu_devis WHERE ID_DEVIS=:id');
+				$req->execute(array(
+					'id' => $id
+					));
+				$req->closeCursor();
+			}
+		}
+		return $error;
+	}
+	
+	public function nouveau_enseignant($nom, $prenom, $email, $metier, $etablissement)
+	{
+		$error="noerror";
+		if($nom=="" || $prenom=="" ||  $email=="" || $metier=="" || $etablissement=="")
+		{
+			$error="Un des champs de l'inscription est vide";
+		}
+		else
+		{
+			if(!filter_var($email, FILTER_VALIDATE_EMAIL)){ 
+				$error="Mauvais format pour l'émail";
+			}
+			else
+			{
+				$nom = htmlentities($nom);
+				$prenom = htmlentities($prenom);
+				$email = htmlentities($email);
+				$metier = htmlentities($metier);
+				$etablissement = htmlentities($etablissement);
+				if(get_magic_quotes_gpc())
+				{
+					$nom = stripslashes($nom);
+					$prenom = stripslashes($prenom);
+					$email = stripslashes($email);
+					$metier = stripslashes($metier);
+					$etablissement = stripslashes($etablissement);
+				}
+				$nom = mysql_real_escape_string($nom);
+				$prenom = mysql_real_escape_string($prenom);
+				$email = mysql_real_escape_string($email);
+				$metier = mysql_real_escape_string($metier);
+				$etablissement = mysql_real_escape_string($etablissement);
+				try
+				{
+					$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+					$req = $this->bdd->prepare('INSERT INTO intervenant(ID_INTERVENANT, NOM, PRENOM, EMAIL, METIER, ETABLISSEMENT) VALUES (:id, :nom, :prenom, :email, :metier, :etablissement)', $pdo_options);
+					$req->execute(array(
+						'id' => '',
+						'nom' => $nom,
+						'prenom' => $prenom,
+						'email' => $email,
+						'metier' => $metier,
+						'etablissement' => $etablissement
+						));
+				}
+				catch (Exception $e)
+				{
+						return $e->getMessage();
+				}
+			}
+		}
+		return $error;
 	}
 	
 	public function suppress_enseignant($id)
 	{
-		if(is_int($id))
+		$error="noerror";
+		if(!is_numeric($id))
 		{
-			$req = $this->bdd->prepare('DELETE FROM intervenant WHERE ID_INTERVENANT=:id');
-			$req->execute(array(
-				'id' => $id
-				));
-			$req->closeCursor();
-			return true;
+			$error="La variable GET n'est pas numérique";	
 		}
 		else
 		{
-			return false;
+			try
+			{
+				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+				$req = $this->bdd->prepare('SELECT ID_INTERVENANT FROM intervenant WHERE ID_INTERVENANT=:id', $pdo_options);
+				$req->execute(array(
+					'id' => $id,
+					));
+				while ($donnees = $req->fetch())
+				{
+					$test = $donnees['ID_INTERVENANT'];
+				}		
+			}
+			catch (Exception $e)
+			{
+				return $e->getMessage();
+			}
+			if (!isset($test))
+			{
+				$error="Cet ID n'existe pas";
+			}
+			else
+			{
+				$req = $this->bdd->prepare('DELETE FROM intervenant WHERE ID_INTERVENANT=:id');
+				$req->execute(array(
+					'id' => $id
+					));
+				$req->closeCursor();
+			}
 		}
+		return $error;
 	}
 }
