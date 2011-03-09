@@ -236,12 +236,12 @@ else
 					</em>		     
 						<ul>
 							<li>	
-								<a href="'.$ROOT.'/index.php?page=admin_session">
+								<a href="'.$ROOT.'index.php?page=admin_session">
 									Sessions
 								</a>		
 							</li>						
 							<li>					
-								<a href="'.$ROOT.'/index.php?page=admin_forma">
+								<a href="'.$ROOT.'index.php?page=admin_forma">
 									Formations
 								</a>
 							</li>
@@ -255,12 +255,12 @@ else
 					<em>
 					<ul>
 							<li>	
-								<a href="'.$ROOT.'/index.php?page=admin_user">
+								<a href="'.$ROOT.'index.php?page=admin_user">
 									Utilisateurs
 								</a>		
 							</li>						
 							<li>					
-								<a href="#">
+								<a href="'.$ROOT.'index.php?page=admin_devis">
 									Devis
 								</a>
 							</li>
@@ -279,7 +279,7 @@ else
 								</a>		
 							</li>						
 							<li>					
-								<a href="#">
+								<a href="'.$ROOT.'index.php?page=admin_intervenant">
 									Enseignants
 								</a>
 							</li>
@@ -292,47 +292,32 @@ else
 				<li id="focus">			
 					<em>			
 					<a href="#">
-						Menu n°1
+						Catalogue
 					</a>			
 					</em>		     
 						<ul>
 						<li>	
-								<a href="#">
-									Sous-Menu 1-1
+								<a href="'.$ROOT.'index.php?page=user_catalogue">
+									Consultation
 								</a>		
 							</li>						
-							<li>					
-								<a href="#">
-									Sous-Menu 1-2
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									Sous-Menu 1-3
-								</a>
-							</li>
 						</ul>
 				</li>
 				<li id="focus">
 					<em>
 					<a href="#">
-						Menu n°2
+						Devis
 					</a>
 					<em>
 					<ul>
 						<li>	
-								<a href="#">
-									Sous-Menu 2-1
+								<a href="'.$ROOT.'index.php?page=user_devis_consult">
+									Consultation
 								</a>		
 							</li>						
 							<li>					
-								<a href="#">
-									Sous-Menu 2-2
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									Sous-Menu 2-3
+								<a href="'.$ROOT.'index.php?page=user_devis_create">
+									Création
 								</a>
 							</li>
 						</ul>

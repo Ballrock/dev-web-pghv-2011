@@ -224,7 +224,7 @@ else
 			echo '<div class="style1">
 						<h3>Supprimer une Session</h3>
 						<div class="style1_contenu"></div>
-							<h4>La session à été correctement annulé</h4><br/><a href='.$ROOT.'?page=admin_session>Retour</a>
+							<h4>La session a été correctement annulé</h4><br/><a href='.$ROOT.'?page=admin_session>Retour</a>
 						</div> <!-- fin .style1_contenu -->
 					</div> <!-- fin .style1 -->	
 			</div>';
