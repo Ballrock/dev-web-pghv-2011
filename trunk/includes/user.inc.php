@@ -300,7 +300,7 @@ class User
 						$req = $this->bdd->prepare('UPDATE devis SET VALIDEE=0, DATE_DEVIS=:date WHERE ID_DEVIS=:id_devis', $pdo_options);
 						$req->execute(array(
 							'id_devis' => $id,
-							'date' => $time
+							'date' => time()
 							));
 							
 					}
@@ -313,4 +313,37 @@ class User
 		}
 		return $error;
 	}
+	public function exist_formation($id)
+	{
+		$error="noerror";
+		if(!is_numeric($id))
+		{
+			$error="Problème avec l'id";
+		}
+		else
+		{
+			try
+			{
+				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+				$req = $this->bdd->prepare('SELECT ID_FORMATION FROM formation WHERE ID_FORMATION=:id', $pdo_options);
+				$req->execute(array(
+					'id' => $id,
+					));
+				while ($donnees = $req->fetch())
+				{
+					$test = $donnees['ID_FORMATION'];
+				}		
+			}
+			catch (Exception $e)
+			{
+				return $e->getMessage();
+			}
+			if (!isset($test))
+			{
+				$error="Cette formation n'existe pas";
+			}
+		}
+		return $error;
+	}
+	
 }

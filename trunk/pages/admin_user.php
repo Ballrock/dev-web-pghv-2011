@@ -31,15 +31,7 @@ else
 				<div class="style1">
 					<h3>Utilisateur</h3>
 					<div class="style1_contenu"></div>
-						<br /><table border="1">
-						<tr>
-							<td><strong>ID</strong></td>
-							<td><strong>Nom</strong></td>
-							<td><strong>Email</strong></td>
-							<td><strong>Status</strong></td>
-							<td><strong>Date d\'Inscription</strong></td>
-							<td><strong>Niveau d\'Accés</strong></td>
-						</tr>';
+						<br />';
 					try
 					{
 						$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
@@ -47,7 +39,16 @@ else
 						$reponse = $bdd->query('SELECT * FROM utilisateur');
 						while ($donnees = $reponse->fetch())
 						{
-							echo '<tr>
+							echo '<table border="1">
+							<tr>
+								<td><strong>ID</strong></td>
+								<td><strong>Nom</strong></td>
+								<td><strong>Email</strong></td>
+								<td><strong>Status</strong></td>
+								<td><strong>Date d\'Inscription</strong></td>
+								<td><strong>Niveau d\'Accés</strong></td>
+							</tr>
+							<tr>
 							<td>' . $donnees['ID_UTILISATEUR']. '</td>
 							<td>' . $donnees['NOM']. ' ' . $donnees['PRENOM'] .'</td>
 							<td>' . $donnees['EMAIL']. '</td>
@@ -89,9 +90,7 @@ else
 										<td>' . $donnees['MAIL_CONTACT_ENT'] . '</td>
 									</tr>';
 							}
-							echo'<tr>
-										<td colspan="6">&nbsp;</td>
-									</tr>';
+							echo'</table><br/>';
 						}
 						$reponse->closeCursor();
 					}
@@ -99,7 +98,7 @@ else
 					{
 						die('Erreur : '.$e->getMessage());
 					}
-		echo '				</table><br/>
+		echo '				
 					</div> <!-- fin .style1_contenu -->
 				</div> <!-- fin .style1 -->	
 				</div>';
