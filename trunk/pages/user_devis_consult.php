@@ -54,14 +54,13 @@ else
 								<td colspan="2"><strong>Date d\'émission</strong></td>
 							</tr>
 								<tr>
-								<td>' . $donnees['ID_DEVIS']. '</td>
-								<td>' . date("d/m/Y H:i:s", $donnees['DATE_DEVIS']) . '</td>						
+								<td colspan="2">' . $donnees['ID_DEVIS']. '</td>
+								<td colspan="2">' . date("d/m/Y H:i:s", $donnees['DATE_DEVIS']) . '</td>						
 							</tr>
 							<tr>
-								<td>&nbsp;</td>
 								<td><strong>Formation</strong></td>
 								<td><strong>Durée</strong></td>
-								<td><strong>Niveau Competence</strong></td>
+								<td colspan="2"><strong>Niveau Competence</strong></td>
 							</tr>';
 								$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
 								$bdd = new PDO('mysql:host='.$DB_HOST.';dbname='.$DB_DBNAME, $DB_USERNAME, $DB_PASSWORD, $pdo_options);
@@ -71,8 +70,7 @@ else
 								));
 								while ($donnees4 = $reponse4->fetch())
 								{
-									echo '<tr>
-											<td>&nbsp;</td>';
+									echo '<tr>';
 											$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
 											$bdd = new PDO('mysql:host='.$DB_HOST.';dbname='.$DB_DBNAME, $DB_USERNAME, $DB_PASSWORD, $pdo_options);
 											$reponse5 = $bdd->prepare('SELECT * FROM formation WHERE ID_FORMATION=:id');
@@ -91,10 +89,10 @@ else
 												));
 												while ($donnees6 = $reponse6->fetch())
 												{
-													echo '<td>' . $donnees6['NOM'] . '</td>';
+													echo '<td colspan="2">' . $donnees6['NOM'] . '</td>';
 												}
 											}
-											echo '<td colspan="2">&nbsp;</td></tr>';
+											echo '</tr>';
 								}
 								echo '</table><br/>';
 							}
@@ -129,16 +127,14 @@ else
 								<td><strong>Prix (en  €)</strong></td>
 							</tr>
 								<tr>
-								<td>' . $donnees['ID_DEVIS']. '</td>
-								<td>' . date("d/m/Y H:i:s", $donnees['DATE_DEVIS']) . '</td>						
+								<td colspan="2">' . $donnees['ID_DEVIS']. '</td>
+								<td colspan="2">' . date("d/m/Y H:i:s", $donnees['DATE_DEVIS']) . '</td>						
 								<td>' . $donnees['PRIX'] . '</td>
 							</tr>
 							<tr>
-								<td>&nbsp;</td>
 								<td><strong>Formation</strong></td>
 								<td><strong>Durée</strong></td>
-								<td><strong>Niveau Competence</strong></td>
-								<td></td>
+								<td colspan="3"><strong>Niveau Competence</strong></td>
 							</tr>';
 								$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
 								$bdd = new PDO('mysql:host='.$DB_HOST.';dbname='.$DB_DBNAME, $DB_USERNAME, $DB_PASSWORD, $pdo_options);
@@ -148,8 +144,7 @@ else
 								));
 								while ($donnees4 = $reponse4->fetch())
 								{
-									echo '<tr>
-											<td>&nbsp;</td>';
+									echo '<tr>';
 											$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
 											$bdd = new PDO('mysql:host='.$DB_HOST.';dbname='.$DB_DBNAME, $DB_USERNAME, $DB_PASSWORD, $pdo_options);
 											$reponse5 = $bdd->prepare('SELECT * FROM formation WHERE ID_FORMATION=:id');
@@ -168,12 +163,12 @@ else
 												));
 												while ($donnees6 = $reponse6->fetch())
 												{
-													echo '<td>' . $donnees6['NOM'] . '</td>';
+													echo '<td colspan="3">' . $donnees6['NOM'] . '</td>';
 												}
 											}
-											echo '<td>&nbsp;</td></tr>';
+											echo '</tr>';
 								}
-								echo '</table><br/>';
+								echo '<tr><td colspan="5"><strong>Commentaire : </strong>' . $donnees['COMMENTAIRE'] . '</td></tr></table><br/>';
 							}
 							$reponse->closeCursor();
 						}

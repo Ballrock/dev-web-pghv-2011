@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Sam 05 Mars 2011 à 18:10
+-- Généré le : Mer 09 Mars 2011 à 06:29
 -- Version du serveur: 5.1.53
 -- Version de PHP: 5.3.4
 
@@ -66,8 +66,11 @@ CREATE TABLE IF NOT EXISTS `devis` (
   `ID_DEVIS` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `ID_UTILISATEUR` int(11) unsigned NOT NULL,
   `DATE_DEVIS` int(11) unsigned NOT NULL,
+  `VALIDEE` tinyint(1) unsigned NOT NULL,
+  `PRIX` int(10) unsigned NOT NULL DEFAULT '0',
+  `COMMENTAIRE` text,
   PRIMARY KEY (`ID_DEVIS`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Contenu de la table `devis`
@@ -92,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `formation` (
   `NIVCOMP` smallint(2) unsigned NOT NULL,
   `THEME` int(11) unsigned NOT NULL,
   PRIMARY KEY (`ID_FORMATION`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `formation`
@@ -131,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `intervenant` (
   `METIER` varchar(255) NOT NULL,
   `ETABLISSEMENT` varchar(255) NOT NULL,
   PRIMARY KEY (`ID_INTERVENANT`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `intervenant`
@@ -185,11 +188,11 @@ CREATE TABLE IF NOT EXISTS `panier` (
 
 CREATE TABLE IF NOT EXISTS `session` (
   `ID_SESSION` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `DATE_DEBUT` date NOT NULL,
-  `DATE_FIN` date NOT NULL,
+  `DATE_DEBUT` varchar(255) NOT NULL,
+  `DATE_FIN` varchar(255) NOT NULL,
   `FORMATION` int(11) unsigned NOT NULL,
   PRIMARY KEY (`ID_SESSION`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `session`
@@ -214,9 +217,9 @@ CREATE TABLE IF NOT EXISTS `status` (
 
 INSERT INTO `status` (`ID_STATUS`, `NOM`) VALUES
 (1, 'Salarié'),
-(2, 'Entreprise'),
+(2, 'Responsable Formation'),
 (3, 'Etudiant'),
-(4, 'Chomeur');
+(4, 'Demandeur d''Emploi');
 
 -- --------------------------------------------------------
 
@@ -246,9 +249,9 @@ CREATE TABLE IF NOT EXISTS `tarif` (
 CREATE TABLE IF NOT EXISTS `theme` (
   `ID_THEME` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `NOM` varchar(255) NOT NULL,
-  `DESC` text NOT NULL,
+  `DESCRIPTION` text NOT NULL,
   PRIMARY KEY (`ID_THEME`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `theme`
@@ -268,15 +271,23 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `EMAIL` varchar(255) NOT NULL,
   `MOTDEPASSE` varchar(255) NOT NULL,
   `STATUS` int(11) unsigned NOT NULL,
+  `ENTREPRISE` tinyint(1) NOT NULL,
+  `NOM_ENTREPRISE` varchar(255) DEFAULT NULL,
+  `CONTACT_ENTREPRISE` varchar(255) DEFAULT NULL,
+  `TEL_CONTACT_ENT` varchar(20) DEFAULT NULL,
+  `MAIL_CONTACT_ENT` varchar(255) DEFAULT NULL,
   `DATEINSCRIPT` int(11) unsigned NOT NULL,
   `NIVEAU` int(11) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`ID_UTILISATEUR`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Contenu de la table `utilisateur`
 --
 
+INSERT INTO `utilisateur` (`ID_UTILISATEUR`, `NOM`, `PRENOM`, `EMAIL`, `MOTDEPASSE`, `STATUS`, `ENTREPRISE`, `NOM_ENTREPRISE`, `CONTACT_ENTREPRISE`, `TEL_CONTACT_ENT`, `MAIL_CONTACT_ENT`, `DATEINSCRIPT`, `NIVEAU`) VALUES
+(10, 'admin', 'Admin', 'admin@admin.fr', 'd033e22ae348aeb5660fc2140aec35850c4da997', 4, 0, NULL, NULL, NULL, NULL, 1299644116, 100),
+(11, 'user', 'user', 'user@user.fr', '12dea96fec20593566ab75692c9949596833adc9', 2, 1, 'Magret Tech', 'User Man', '+33 6 64 64 64 64', 'user@magret.tech', 1299644238, 1);
 
 -- --------------------------------------------------------
 

@@ -105,6 +105,10 @@ else
 				{
 					include('pages/user_devis_consult.php');
 				}
+				elseif ($page=='user_devis_creation')
+				{
+					include('pages/user_devis_creation.php');
+				}
 				else
 				{
 					include('pages/user_index.php');
