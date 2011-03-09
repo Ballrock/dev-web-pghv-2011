@@ -32,7 +32,7 @@ else
 		if(!isset($_POST['prix']) || !isset($_POST['comment']))
 		{
 			echo '<div class="style1">
-					<h3>Modifier une Session</h3>
+					<h3>MRepondre au Devis</h3>
 					<div class="style1_contenu"></div>
 					<form action="'.$ROOT.'index.php?page=admin_devis&action=reply&id='. $_GET['id'] .'" method="post">';
 					try
@@ -188,7 +188,7 @@ else
 			echo '<div class="style1">
 						<h3>Supprimer un Devis</h3>
 						<div class="style1_contenu"></div>
-							<h4>Le debis a été correctement supprimé</h4><br/><a href='.$ROOT.'?page=admin_devis>Retour</a>
+							<h4>Le devis a été correctement supprimé</h4><br/><a href='.$ROOT.'?page=admin_devis>Retour</a>
 						</div> <!-- fin .style1_contenu -->
 					</div> <!-- fin .style1 -->	
 			</div>';

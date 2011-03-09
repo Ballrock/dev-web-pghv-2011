@@ -316,7 +316,7 @@ else
 								</a>		
 							</li>						
 							<li>					
-								<a href="'.$ROOT.'index.php?page=user_devis_create">
+								<a href="'.$ROOT.'index.php?page=user_devis_creation">
 									Création
 								</a>
 							</li>

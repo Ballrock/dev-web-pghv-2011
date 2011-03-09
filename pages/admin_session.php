@@ -108,7 +108,7 @@ else
 				<div class="style1">
 						<h3>Modifier une Session</h3>
 						<div class="style1_contenu"></div>
-							Une erreur est survenue lors de la modification de la session : <br /> <h4>' . $resultat . '</h4> <br/><a href='.$ROOT.'?page=admin_session>Retour</a>
+							Une erreur est survenue lors de la modification de la session : <br /> <h4>' . $resultat . '</h4> <br/><a href="javascript:history.back()">Retour</a>
 						</div> <!-- fin .style1_contenu -->
 					</div> <!-- fin .style1 -->	
 					</div>';
