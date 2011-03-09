@@ -67,15 +67,6 @@ class Admin
 					$nivcomp = stripslashes($nivcomp);
 					$theme = stripslashes($theme);
 				}
-				$nom = mysql_real_escape_string($nom);
-				$obj = mysql_real_escape_string($obj);
-				$prog = mysql_real_escape_string($prog);
-				$intervenant = mysql_real_escape_string($intervenant);
-				$prerequis = mysql_real_escape_string($prerequis);
-				$duree = mysql_real_escape_string($duree);
-				$lieu = mysql_real_escape_string($lieu);
-				$nivcomp = mysql_real_escape_string($nivcomp);
-				$theme = mysql_real_escape_string($theme);
 				try
 				{
 					$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
@@ -165,16 +156,6 @@ class Admin
 							$nivcomp = stripslashes($nivcomp);
 							$theme = stripslashes($theme);
 						}
-						$id = mysql_real_escape_string($id);
-						$nom = mysql_real_escape_string($nom);
-						$obj = mysql_real_escape_string($obj);
-						$prog = mysql_real_escape_string($prog);
-						$intervenant = mysql_real_escape_string($intervenant);
-						$prerequis = mysql_real_escape_string($prerequis);
-						$duree = mysql_real_escape_string($duree);
-						$lieu = mysql_real_escape_string($lieu);
-						$nivcomp = mysql_real_escape_string($nivcomp);
-						$theme = mysql_real_escape_string($theme);
 					
 						try
 						{
@@ -265,8 +246,6 @@ class Admin
 				$nom = stripslashes($nom);
 				$desc = stripslashes($desc);
 			}
-			$nom = mysql_real_escape_string($nom);
-			$desc = mysql_real_escape_string($desc);
 			try
 			{
 				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
@@ -307,8 +286,6 @@ class Admin
 					$debut = stripslashes($debut);
 					$fin = stripslashes($fin);
 				}
-				$debut = mysql_real_escape_string($debut);
-				$fin = mysql_real_escape_string($fin);
 				try
 				{
 					$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
@@ -375,8 +352,6 @@ class Admin
 							$debut = stripslashes($debut);
 							$fin = stripslashes($fin);
 						}
-						$debut = mysql_real_escape_string($debut);
-						$fin = mysql_real_escape_string($fin);
 						try
 						{
 							$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
@@ -483,7 +458,6 @@ class Admin
 					{
 						$comment = stripslashes($comment);
 					}
-					$comment = mysql_real_escape_string($comment);
 					try
 					{
 						$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
@@ -581,11 +555,6 @@ class Admin
 					$metier = stripslashes($metier);
 					$etablissement = stripslashes($etablissement);
 				}
-				$nom = mysql_real_escape_string($nom);
-				$prenom = mysql_real_escape_string($prenom);
-				$email = mysql_real_escape_string($email);
-				$metier = mysql_real_escape_string($metier);
-				$etablissement = mysql_real_escape_string($etablissement);
 				try
 				{
 					$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;

@@ -54,7 +54,6 @@ class Inscription
 					{
 						$email = stripslashes($email);
 					}
-					$email = mysql_real_escape_string($email);
 					try
 					{
 						$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
@@ -94,13 +93,6 @@ class Inscription
 							$tel_ent = stripslashes($tel_ent);
 							$email_ent = stripslashes($email_ent);
 						}
-						$nom = mysql_real_escape_string($nom);
-						$prenom = mysql_real_escape_string($prenom);
-						$mdp = mysql_real_escape_string($mdp);
-						$nom_ent =  mysql_real_escape_string($nom_ent);
-						$contact_ent =  mysql_real_escape_string($contact_ent);
-						$tel_ent =  mysql_real_escape_string($tel_ent);
-						$email_ent =  mysql_real_escape_string($email_ent);
 						if($status == 3 || $status == 4)
 						{
 							try

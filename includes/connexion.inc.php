@@ -48,8 +48,6 @@ class Connexion
 					$email = stripslashes($email);
 					$mdp = stripslashes($mdp);
 				}
-				$email = mysql_real_escape_string($email);
-				$mdp = mysql_real_escape_string($mdp);
 				try
 				{
 					$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;

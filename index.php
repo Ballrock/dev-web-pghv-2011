@@ -109,6 +109,10 @@ else
 				{
 					include('pages/user_devis_creation.php');
 				}
+				elseif ($page=='user_catalogue')
+				{
+					include('pages/user_catalogue.php');
+				}
 				else
 				{
 					include('pages/user_index.php');
