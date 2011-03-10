@@ -3,7 +3,12 @@ error_reporting(0);
 if(!isset($_POST['host']) && !isset($_POST['db_name']) && !isset($_POST['db_username']) && !isset($_POST['db_password']) && !isset($_POST['root']))
 {
 	$root="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-	echo '<div class="style1">
+	echo '<html>
+	<head>
+	<title> Installation </title>
+	</head>
+	<body>
+	<div class="style1">
 		<h3>Installation</h3>
 		<div class="style1_contenu"></div>
 		<form action="index.php?page=install" method="post">
@@ -32,7 +37,7 @@ if(!isset($_POST['host']) && !isset($_POST['db_name']) && !isset($_POST['db_user
 		<br />
 		<input type="submit" value="Valider" />
 		</div></div>
-	</div>';
+	</div></body></html>';
 }
 else
 {
@@ -65,13 +70,18 @@ mysql_select_db($_POST['db_name'],$bdd);
 			die("ERROR : ".$req); // stop si erreur 
 		}
 	}
-	echo "base restaurée";
-	echo '<div class="style1">
+	echo '
+	<html>
+	<head>
+	<title> Installation </title>
+	<meta http-equiv="refresh" content="3;url=");/>
+	</head>
+	<body>
+	<div class="style1">
 		<h3>L\'installation s\'est déroulé avec succés</h3>
 		</div></div>
-	</div>';
-	echo '<head>
-	<meta http-equiv="refresh" content="3;url=");/>
-	</head>';
+	</div>
+	</body>
+	</html>';
 }
 ?>
