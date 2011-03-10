@@ -1,6 +1,8 @@
 <?php
+error_reporting(0);
 if(!isset($_POST['host']) && !isset($_POST['db_name']) && !isset($_POST['db_username']) && !isset($_POST['db_password']) && !isset($_POST['root']))
 {
+	$root="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 	echo '<div class="style1">
 		<h3>Installation</h3>
 		<div class="style1_contenu"></div>
@@ -24,7 +26,7 @@ if(!isset($_POST['host']) && !isset($_POST['db_name']) && !isset($_POST['db_user
 			</tr>
 			<tr>
 				<td>Racine du site</td>
-				<td><input type="text" name="root" id="root"/></td>
+				<td><input type="text" name="root" text="$root"/></td>
 			</tr>
 		</table>
 		<br />
@@ -46,33 +48,30 @@ else
 	fclose($inF);
 
 /* Création de la base de donnée*/	
-	$sqlFileToExecute = 'sql/catalogue_formation.sql';
-	$con = mysql_connect($_POST['host'],$_POST['db_username'],$_POST['db_password']);
-    if ($con !== false)
-	{
-	    // Load and explode the sql file
-		$f = fopen($sqlFileToExecute,"r+");
-        $sqlFile = fread($f,filesize($sqlFileToExecute));
-        $sqlArray = explode(';',$sqlFile);
-           
-        //Process the sql file by statements
-        foreach ($sqlArray as $stmt) 
-	    if (strlen($stmt)>3)
-		{
-       	    $result = mysql_query($stmt);
-      	    if (!$result)
-			{
-       	        $sqlErrorCode = mysql_errno();
-       	        $sqlErrorText = mysql_error();
-       	        $sqlStmt      = $stmt;
-       	        break;
-           	}
-        }
-    }
+	$bdd = mysql_connect($_POST['host'],$_POST['db_username'],$_POST['db_password']);
+mysql_select_db($_POST['db_name'],$bdd);
+	$requetes="";
+	 
+	$sql=file("sql/catalogue_formation.sql"); // on charge le fichier SQL
+	foreach($sql as $l){ // on le lit
+		if (substr(trim($l),0,2)!="--"){ // suppression des commentaires
+			$requetes .= $l;
+		}
+	}
 	
+	$reqs = explode(";\n",$requetes);// on sépare les requêtes
+	foreach($reqs as $req){	// et on les éxécute
+		if (!mysql_query($req,$bdd) && trim($req)!=""){
+			die("ERROR : ".$req); // stop si erreur 
+		}
+	}
+	echo "base restaurée";
 	echo '<div class="style1">
-		<h3>L\'installation c\'est déroulé avec succés</h3>
+		<h3>L\'installation s\'est déroulé avec succés</h3>
 		</div></div>
 	</div>';
+	echo '<head>
+	<meta http-equiv="refresh" content="3;url=");/>
+	</head>';
 }
 ?>
