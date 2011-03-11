@@ -399,7 +399,7 @@ else
 				<div class="style1">
 					<h3>Ajouter une Formation</h3>
 					<div class="style1_contenu"></div>
-						<h4>L\'ajout de la formation c\'est bien déroulée</h4><br/><a href='.$ROOT.'?page=admin_forma>Retour</a>
+						<h4>L\'ajout de la formation s\'est bien déroulée</h4><br/><a href='.$ROOT.'?page=admin_forma>Retour</a>
 					</div> <!-- fin .style1_contenu -->
 				</div> <!-- fin .style1 -->	
 				</div>';
@@ -454,7 +454,7 @@ else
 				<div class="style1">
 					<h3>Ajouter un Thème</h3>
 					<div class="style1_contenu"></div>
-						<h4>L\'ajout du thème c\'est bien déroulée</h4><br/><a href='.$ROOT.'?page=admin_forma>Retour</a>
+						<h4>L\'ajout du thème s\'est bien déroulée</h4><br/><a href='.$ROOT.'?page=admin_forma>Retour</a>
 					</div> <!-- fin .style1_contenu -->
 				</div> <!-- fin .style1 -->	
 				</div>';

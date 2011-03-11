@@ -37,31 +37,31 @@ else
 				<form action="'.$ROOT.'index.php?page=admin_intervenant&action=new" method="post">
 				<table cellspacing="0"  border="0">
 					<tr>
-						<td>Nom</td>
+						<td>Nom*</td>
 						<td>
 						<input type="text" name="nom" id="nom"/>
 						</td>
 					</tr>
 					<tr>
-						<td>Prenom</td>
+						<td>Prenom*</td>
 						<td>
 						<input type="text" name="prenom" id="prenom"/>
 						</td>
 					</tr>
 					<tr>
-						<td>Email</td>
+						<td>Email*</td>
 						<td>
 						<input type="text" name="email" id="email"/>
 						</td>
 					</tr>
 					<tr>
-						<td>Metier</td>
+						<td>Metier*</td>
 						<td>
 						<input type="text" name="metier" id="metier"/>
 						</td>
 					</tr>
 					<tr>
-						<td>Etablissement</td>
+						<td>Etablissement*</td>
 						<td>
 						<input type="text" name="etablissement" id="etablissement"/>
 						</td>
@@ -70,6 +70,7 @@ else
 				<br />
 				<input type="submit" value="Valider" />
 				</div></div>
+				<td>Les champs marqués d\'une étoile sont obligatoire</td>
 			</div>';
 		}
 		else
@@ -93,7 +94,7 @@ else
 				<div class="style1">
 					<h3>Inscrire un Intervenant</h3>
 					<div class="style1_contenu"></div>
-						<h4>L\'ajout de l\intervenant c\'est bien déroulée</h4><br/><a href='.$ROOT.'?page=admin_intervenant>Retour</a>
+						<h4>L\'ajout de l\'intervenant s\'est bien déroulée</h4><br/><a href='.$ROOT.'?page=admin_intervenant>Retour</a>
 					</div> <!-- fin .style1_contenu -->
 				</div> <!-- fin .style1 -->	
 				</div>';

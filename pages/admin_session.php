@@ -196,7 +196,7 @@ else
 				<div class="style1">
 					<h3>Créer une Session</h3>
 					<div class="style1_contenu"></div>
-						<h4>L\'ajout de la session c\'est bien déroulée</h4><br/><a href='.$ROOT.'?page=admin_session>Retour</a>
+						<h4>L\'ajout de la session s\'est bien déroulée</h4><br/><a href='.$ROOT.'?page=admin_session>Retour</a>
 					</div> <!-- fin .style1_contenu -->
 				</div> <!-- fin .style1 -->	
 				</div>';
