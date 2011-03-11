@@ -255,7 +255,7 @@ else
 			echo '<div class="style1">
 						<h3>Supprimer une Formation</h3>
 						<div class="style1_contenu"></div>
-							<h4>La formation à été correctement supprimé</h4><br/><a href='.$ROOT.'?page=admin_forma>Retour</a>
+							<h4>La formation a été correctement supprimé</h4><br/><a href='.$ROOT.'?page=admin_forma>Retour</a>
 						</div> <!-- fin .style1_contenu -->
 					</div> <!-- fin .style1 -->	
 			</div>';
@@ -329,7 +329,7 @@ else
 						</td>
 					</tr>
 					<tr>
-						<td>Niveau de Competence</td>
+						<td>Niveau de Compétence</td>
 						<td>';
 						try
 						{
