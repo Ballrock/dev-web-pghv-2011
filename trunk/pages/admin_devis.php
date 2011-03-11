@@ -45,7 +45,7 @@ else
 							));
 						while ($donnees = $reponse->fetch())
 						{
-							echo '<table border="1">
+							echo '<table cellspacing="0" border="1">
 						<tr>
 							<td><strong>ID</strong></td>
 							<td><strong>Emmeteur</strong></td>
@@ -126,15 +126,14 @@ else
 					{
 						die('Erreur : '.$e->getMessage());
 					}
-					echo '<table border="0">
+					echo '<table cellspacing="0" border="0">
 					<tr>
 						<td>Prix (en  €)</td>
 						<td><input type="text" name="prix" id="prix"/></td>	
 					</tr>
 					<tr>
 						<td>Commentaire</td>
-						<td><textarea name="comment" rows=4 cols=40>
-						</textarea></td>	
+						<td><textarea name="comment" rows=4 cols=40></textarea></td>	
 					</tr></table>
 					<br />
 					<input type="submit" value="Valider" />
@@ -217,7 +216,7 @@ else
 							$reponse = $bdd->query('SELECT * FROM devis WHERE VALIDEE=0');
 							while ($donnees = $reponse->fetch())
 							{
-								echo '<table border="1">
+								echo '<table cellspacing="0" border="1">
 							<tr>
 								<td><strong>ID</strong></td>
 								<td><strong>Emmeteur</strong></td>
@@ -318,7 +317,7 @@ else
 							$reponse = $bdd->query('SELECT * FROM devis WHERE VALIDEE=1');
 							while ($donnees = $reponse->fetch())
 							{
-								echo '<table border="1">
+								echo '<table cellspacing="0" border="1">
 							<tr>
 								<td><strong>ID</strong></td>
 								<td><strong>Emmeteur</strong></td>

@@ -211,7 +211,7 @@ if (session_id()=="" || !isset($_SESSION['userlevel']))
 						<ul>
 						<li>	
 								<a href="'.$ROOT.'/index.php?page=connect">
-									Connection
+									Connexion
 								</a>		
 							</li>						
 							<li>					
