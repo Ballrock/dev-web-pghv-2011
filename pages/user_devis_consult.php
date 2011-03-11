@@ -48,7 +48,7 @@ else
 								));
 							while ($donnees = $reponse->fetch())
 							{
-								echo '<table border="1">
+								echo '<table cellspacing="0"  border="1">
 							<tr>
 								<td colspan="2"><strong>ID</strong></td>
 								<td colspan="2"><strong>Date d\'émission</strong></td>
@@ -120,7 +120,7 @@ else
 								));
 							while ($donnees = $reponse->fetch())
 							{
-								echo '<table border="1">
+								echo '<table cellspacing="0"  border="1">
 							<tr>
 								<td colspan="2"><strong>ID</strong></td>
 								<td colspan="2"><strong>Date d\'émission</strong></td>

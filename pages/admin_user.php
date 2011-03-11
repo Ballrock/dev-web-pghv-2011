@@ -39,7 +39,7 @@ else
 						$reponse = $bdd->query('SELECT * FROM utilisateur');
 						while ($donnees = $reponse->fetch())
 						{
-							echo '<table border="1">
+							echo '<table cellspacing="0"  border="1">
 							<tr>
 								<td><strong>ID</strong></td>
 								<td><strong>Nom</strong></td>

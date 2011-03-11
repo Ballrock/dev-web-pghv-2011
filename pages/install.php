@@ -26,7 +26,7 @@ if(!isset($_POST['host']) && !isset($_POST['db_name']) && !isset($_POST['db_user
 				<td><input type="text" name="db_username" id="db_username"/></td>
 			</tr>
 			<tr>
-				<td>Mot de passe de la base de donné</td>
+				<td>Mot de passe de la base de donnée</td>
 				<td><input type="password" name="db_password" id="db_password"/></td>
 			</tr>
 			<tr>

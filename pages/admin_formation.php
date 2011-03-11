@@ -36,7 +36,7 @@ else
 				<h3>Modifier une Formation</h3>
 				<div class="style1_contenu"></div>
 				<form action="'.$ROOT.'index.php?page=admin_forma&action=edit&id='. $_GET['id'] .'" method="post">
-				<table border="0">
+				<table cellspacing="0" border="0">
 					<tr>
 						<td>Nom</td>
 						<td><input type="text" name="nom" id="nom" value="';
@@ -67,8 +67,7 @@ else
 							echo $donnees['OBJECTIF'];
 						}
 						$reponse->closeCursor();
-						echo '
-						</textarea>
+						echo '</textarea>
 						</td>
 					</tr>
 					<tr>
@@ -85,8 +84,7 @@ else
 							echo $donnees['PROGRAMME'];
 						}
 						$reponse->closeCursor();
-						echo '
-						</textarea>
+						echo '</textarea>
 						</td>
 					</tr>
 					<tr>
@@ -124,8 +122,7 @@ else
 							echo $donnees['PREREQUIS'];
 						}
 						$reponse->closeCursor();
-						echo '
-						</textarea>
+						echo '</textarea>
 						</td>
 					</tr>
 					<tr>
@@ -274,7 +271,7 @@ else
 				<h3>Ajouter une Formation</h3>
 				<div class="style1_contenu"></div>
 				<form action="'.$ROOT.'index.php?page=admin_forma&action=new" method="post">
-				<table border="0">
+				<table cellspacing="0" border="0">
 					<tr>
 						<td>Nom</td>
 						<td><input type="text" name="nom" id="nom"/></td>
@@ -282,15 +279,13 @@ else
 					<tr>
 						<td>Objectif</td>
 						<td>
-						<textarea name="objectif" rows=4 cols=40>
-						</textarea>
+						<textarea name="objectif" rows=4 cols=40></textarea>
 						</td>
 					</tr>
 					<tr>
 						<td>Programme</td>
 						<td>
-						<textarea name="programme" rows=4 cols=40>
-						</textarea>
+						<textarea name="programme" rows=4 cols=40></textarea>
 						</td>
 					</tr>
 					<tr>
@@ -318,8 +313,7 @@ else
 					<tr>
 						<td>Prérequis</td>
 						<td>
-						<textarea name="prerequis" rows=4 cols=40>
-						</textarea>
+						<textarea name="prerequis" rows=4 cols=40></textarea>
 						</td>
 					</tr>
 					<tr>
@@ -421,7 +415,7 @@ else
 					<h3>Ajouter un Theme</h3>
 					<div class="style1_contenu"></div>
 					<form action="'.$ROOT.'index.php?page=admin_forma&action=ajout_theme" method="post">
-					<table border="0">
+					<table cellspacing="0" border="0">
 						<tr>
 							<td>Nom</td>
 							<td><input type="text" name="nom" id="nom"/></td>
@@ -429,8 +423,7 @@ else
 						<tr>
 							<td>Description</td>
 							<td>
-							<textarea name="description" rows=4 cols=40>
-							</textarea>
+							<textarea name="description" rows=4 cols=40></textarea>
 							</td>
 						</tr>
 					</table>
@@ -475,7 +468,7 @@ else
 				<div class="style1">
 					<h3>Formation</h3>
 					<div class="style1_contenu"></div>
-						<br /><table border="1">
+						<br /><table cellspacing="0" border="1">
 						<tr>
 							<td><strong>ID</strong></td>
 							<td><strong>Formation</strong></td>

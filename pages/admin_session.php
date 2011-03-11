@@ -35,7 +35,7 @@ else
 				<h3>Modifier une Session</h3>
 				<div class="style1_contenu"></div>
 				<form action="'.$ROOT.'index.php?page=admin_session&action=edit&id='. $_GET['id'] .'" method="post">
-				<table border="0">
+				<table cellspacing="0"  border="0">
 					<tr>
 						<td>Formation</td>
 						<td>';
@@ -134,7 +134,7 @@ else
 				<h3>Créer une Session</h3>
 				<div class="style1_contenu"></div>
 				<form action="'.$ROOT.'index.php?page=admin_session&action=new" method="post">
-				<table border="0">
+				<table cellspacing="0"  border="0">
 					<tr>
 						<td>Formation</td>
 						<td>';
@@ -238,7 +238,7 @@ else
 				<div class="style1">
 					<h3>Session</h3>
 					<div class="style1_contenu"></div>
-						<br /><table border="1">
+						<br /><table cellspacing="0"  border="1">
 						<tr>
 							<td><strong>ID</strong></td>
 							<td><strong>Date de Debut</strong></td>
