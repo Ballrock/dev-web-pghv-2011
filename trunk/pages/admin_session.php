@@ -281,7 +281,7 @@ else
 						die('Erreur : '.$e->getMessage());
 					}
 		echo '				</table><br/>
-					<a href="'.$ROOT.'index.php?page=admin_session&action=new">Créer un Session</a><br />
+					<a href="'.$ROOT.'index.php?page=admin_session&action=new">Créer une Session</a><br />
 					</div> <!-- fin .style1_contenu -->
 				</div> <!-- fin .style1 -->	
 				</div>';
